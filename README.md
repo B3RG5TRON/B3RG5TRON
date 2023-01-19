@@ -4,6 +4,8 @@
 
 **About me:**
 
+Since childhood, I've always had a great interest in technology and understanding how software works. During the 2020 pandemic, I decided to delve deeper into this fascinating and limitless area and, despite not having many resources, I began studying Software Engineering. Currently, I am seeking my first professional opportunity as a developer.
+
 - 💻 I'm web developer since 2022
 - ⚛️ JavaScript | TypeScript | React
 - 📝 I'm majoring in Software Engineering
