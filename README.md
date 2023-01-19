@@ -9,7 +9,7 @@ Since childhood, I've always had a great interest in technology and understandin
 - 💻 I'm web developer since 2022
 - ⚛️ JavaScript | TypeScript | React.JS
 - 📝 I'm majoring in Software Engineering
-- 📫 How to reach me: [LinkedIn](https://www.linkedin.com/in/eduardo-bergstron-986108143/), [Instagram](https://www.instagram.com/b3rg5tron[Twitter](https://twitter.com/B3RG5TRON) or [Email]bergstron.dev@icloud.com
+- 📫 How to reach me: [LinkedIn](https://www.linkedin.com/in/eduardo-bergstron-986108143/), [Instragram](https://www.instagram.com/b3rg5tron/), [Twitter](https://twitter.com/B3RG5TRON) or [Email](bergstron.dev@icloud.com)
 
 **Languages and tools:**
 
