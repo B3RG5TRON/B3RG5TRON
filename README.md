@@ -4,16 +4,12 @@
 
 **About me:**
 
-Since childhood, I've always had a great interest in technology and understanding how software works. During the 2020 pandemic, I decided to delve deeper into this fascinating and limitless area and, despite not having many resources, I began studying Software Engineering. Currently, I am seeking my first professional opportunity as a developer.
+I started my long-awaited career transition to the technology field in 2023. Since this significant change, I have intensified my studies and gone through various stages and areas within the sector, which has provided me with continuous growth. Currently, I work in development, an area where I have acquired valuable knowledge and significantly expanded my skills as a full-stack developer.
 
-- 💻 I'm front-end developer since 2022
-- ⚛️ JavaScript | TypeScript | React.JS
+- 💻 I'm full-stack developer since 2023
 - 📝 I'm majoring in Software Engineering
-- 📫 How to reach me: [LinkedIn](https://www.linkedin.com/in/eduardo-bergstron-986108143/), [Instragram](https://www.instagram.com/b3rg5tron/), [Twitter](https://twitter.com/B3RG5TRON) or [Email](bergstron.dev@icloud.com)
+- 📫 How to reach me: [LinkedIn](https://www.linkedin.com/in/eduardo-bergstron-986108143/) or [Email](bergstron.dev@icloud.com)
 
 **Languages and tools:**
 
-<img align="left" height="20" src="https://raw.githubusercontent.com/jakeliny/jakeliny/master/images/javascript.png">
-<img align="left" height="20" src="https://raw.githubusercontent.com/jakeliny/jakeliny/master/images/typescript.png">
-<img align="left" height="20" src="https://raw.githubusercontent.com/jakeliny/jakeliny/master/images/react.png">
-
+[![My Skills](https://skillicons.dev/icons?i=html,css,js,ts,react,nodejs,cs,dotnet,sqlite,figma,git,github,vite)](https://skillicons.dev)
