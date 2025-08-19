@@ -12,4 +12,4 @@ I started my long-awaited career transition to the technology field in 2023. Sin
 
 **Languages and tools:**
 
-[![My Skills](https://skillicons.dev/icons?i=html,css,js,ts,react,nodejs,cs,dotnet,sqlite,figma,git,github,vite)](https://skillicons.dev)
+[![My Skills](https://skillicons.dev/icons?i=html,css,js,ts,vue,react,tailwind,nodejs,cs,dotnet,sqlite,figma,git,github,vite,visualstudio,vscode)](https://skillicons.dev)
