@@ -4,7 +4,7 @@
 
 **About me:**
 
-I started my long-awaited career transition to the technology field in 2023. Since this significant change, I have intensified my studies and gone through various stages and areas within the sector, which has provided me with continuous growth. Currently, I work in development, an area where I have acquired valuable knowledge and significantly expanded my skills as a full-stack developer.
+I began my long-awaited career transition to the technology field in 2023, intensifying my studies and exploring different segments of the industry. This journey has provided me with continuous growth and valuable learnings throughout the entire process. As a result, I have been able to significantly expand my skills and performance as a Full Stack Developer.
 
 - 💻 I'm full-stack developer since 2023
 - 📝 I'm majoring in Software Engineering
