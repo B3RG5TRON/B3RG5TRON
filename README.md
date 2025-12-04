@@ -4,7 +4,7 @@
 
 **About me:**
 
-I began my long-awaited career transition to the technology field in 2023, intensifying my studies and exploring different segments of the industry. This journey has provided me with continuous growth and valuable learnings throughout the entire process. As a result, I have been able to significantly expand my skills and performance as a Full Stack Developer.
+Full Stack Developer with experience in .NET, React, and Node.js, working daily with C#, VB.NET, JavaScript, TypeScript, and SQL to build complete, high-performance, and scalable web applications. Experienced in developing REST APIs, system integrations, and handling data in relational databases. Focused on best development practices, testing, and code review, always striving to improve the quality, maintainability, and security of delivered solutions. Continuously interested in technical growth, exploring new technologies, architectures, and development patterns.
 
 - 💻 I'm full-stack developer since 2023
 - 📝 I'm majoring in Software Engineering
@@ -12,4 +12,4 @@ I began my long-awaited career transition to the technology field in 2023, inten
 
 **Languages and tools:**
 
-[![My Skills](https://skillicons.dev/icons?i=html,css,js,ts,vue,react,tailwind,nodejs,cs,dotnet,sqlite,figma,git,github,vite,visualstudio,vscode)](https://skillicons.dev)
+[![My Skills](https://skillicons.dev/icons?i=dotnet,react,nodejs,cs,js,ts,vue,tailwind,html,css,sqlite,figma,git,github,vite,visualstudio,vscode)](https://skillicons.dev)
