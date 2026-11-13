@@ -178,6 +178,12 @@ export const projects = {
       text: { en: 'Habit tracker for web and mobile, built at NLW Setup.', pt: 'Controle de hábitos na web e no celular, feito na NLW Setup.' },
       stack: ['React', 'React Native', 'Fastify'],
     },
+    IgniteFeed: {
+      title: 'Ignite Feed',
+      image: 'assets/projects/ignite-feed.webp',
+      text: { en: 'Social network feed with posts, comments and likes, built at Ignite.', pt: 'Feed de rede social com posts, comentários e curtidas, feito no Ignite.' },
+      stack: ['React', 'TypeScript', 'Vite'],
+    },
   } as Record<string, { title: string; image?: string; logo?: string; endpoints?: string[]; text: L; stack: string[] }>,
 };
 
