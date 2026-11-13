@@ -14,7 +14,7 @@ The README is a set of SVG cards drawn by a script, because GitHub does not run 
 
 Pinned repositories, contributions and languages come from the GitHub API and are saved in `data/github.json`.
 
-To also count private repositories, contributions and languages, add a repository secret named `PROFILE_TOKEN` with a fine-grained personal access token of the profile owner (all repositories, read-only metadata). Only totals are saved; no private repository name or file reaches the cards. If the token is missing or expires, the workflow falls back to public data.
+To also count private repositories, contributions and languages, add a repository secret named `PORTIFOLIODEFAULTBERG` (passed to the script as `PROFILE_TOKEN`) with a fine-grained personal access token of the profile owner (all repositories, read-only metadata). Only totals are saved; no private repository name or file reaches the cards. If the token is missing or expires, the workflow falls back to public data.
 
 ## Commands
 
