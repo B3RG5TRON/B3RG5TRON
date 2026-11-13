@@ -47,14 +47,12 @@ export const about = {
   num: '01',
   title: { en: 'About me', pt: 'Sobre mim' } as L,
   text: {
-    en: 'Full stack developer since 2023, working day to day with .NET, React and Node.js on end-to-end web and mobile (Android and iOS) applications. I build REST APIs, integrate systems and work with data in relational databases. I ship with tests and code review, with performance, security and maintainability in mind.',
-    pt: 'Desenvolvedor full stack desde 2023, trabalho no dia a dia com .NET, React e Node.js em aplicações web e mobile (Android e iOS) de ponta a ponta. Construo APIs REST, integro sistemas e trabalho com dados em bancos relacionais. Entrego com testes e code review, cuidando de desempenho, segurança e manutenção.',
+    en: 'Full stack developer working day to day with .NET, React and Node.js on end-to-end web and mobile (Android and iOS) applications. I build REST APIs, integrate systems and work with data in relational databases. I ship with tests and code review, with performance, security and maintainability in mind.',
+    pt: 'Desenvolvedor full stack, trabalho no dia a dia com .NET, React e Node.js em aplicações web e mobile (Android e iOS) de ponta a ponta. Construo APIs REST, integro sistemas e trabalho com dados em bancos relacionais. Entrego com testes e code review, cuidando de desempenho, segurança e manutenção.',
   } as L,
   /** Short label and value lines under the paragraph, drawn with an arrow like the reference profile. */
   facts: [
     { label: { en: 'studying', pt: 'estudando' }, value: { en: 'Swift, Rust, blockchain and Open Finance', pt: 'Swift, Rust, blockchain e Open Finance' } },
-    { label: { en: 'focus', pt: 'foco' }, value: { en: 'REST APIs, system integration and databases', pt: 'APIs REST, integração de sistemas e bancos de dados' } },
-    { label: { en: 'practices', pt: 'práticas' }, value: { en: 'Integration tests, code review, Git, GitHub and Azure DevOps', pt: 'Testes de integração, code review, Git, GitHub e Azure DevOps' } },
     {
       label: { en: 'beyond code', pt: 'além do código' },
       value: {

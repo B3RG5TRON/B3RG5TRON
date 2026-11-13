@@ -6,12 +6,12 @@ import { mkdirSync, rmSync, writeFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import type { Card } from './svg.ts';
 import type { ThemeName } from './tokens.ts';
-import { alt, building, contact, LANGS, posts, profile, screens, show, switcher, type Lang } from './content.ts';
+import { alt, building, contact, LANGS, posts, profile, show, switcher, type Lang } from './content.ts';
 import { loadData, type GithubData } from './data.ts';
 import { hero } from './cards/hero.ts';
 import {
   aboutCard, buildingCard, buildingTitle, contactCard, experienceCard, footerCard, langPill, linkCard, postCard,
-  postsTitle, projectsTitle, repoCard, screenCard, stackCard,
+  postsTitle, projectsTitle, repoCard, stackCard,
 } from './cards/sections.ts';
 import { activityCard, heatmapCard, languagesCard } from './cards/stats.ts';
 
@@ -65,14 +65,6 @@ export function layout(data: GithubData): Row[] {
       })),
     });
   }
-  rows.push({
-    items: screens.items.map((s) => ({
-      name: `screen-${s.id}`,
-      width: '33.33%',
-      href: screens.href,
-      build: (l: Lang, t: ThemeName) => screenCard(l, t, s.file, s.caption[l]),
-    })),
-  });
   rows.push(
     full('contact', (l, t) => contactCard(l, t), `mailto:${profile.email}`),
     { items: contact.links.map((link) => ({ name: `link-${link.id}`, width: `${Math.round(10000 / contact.links.length) / 100}%`, href: link.href, build: (l: Lang, t: ThemeName) => linkCard(l, t, link.id) })) },
