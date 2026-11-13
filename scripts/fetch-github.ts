@@ -7,7 +7,7 @@
  * Only totals are saved: no private repository name, description or file ever reaches the cards.
  * Without it, or if it stops working, the built-in GITHUB_TOKEN is used and only public data is read.
  */
-import { mkdirSync, writeFileSync } from 'node:fs';
+import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { profile } from '../src/content.ts';
 import type { GithubData } from '../src/data.ts';
 
@@ -83,15 +83,9 @@ for (const repo of u.code.nodes) {
   }
 }
 
-const data: GithubData = {
-  fetchedAt: new Date().toISOString(),
-  user: {
-    login: u.login,
-    publicRepos: u.publicRepos.totalCount,
-    privateRepos: includesPrivate ? u.privateRepos.totalCount : null,
-    followers: u.followers.totalCount,
-  },
-  pinned: u.pinnedItems.nodes
+/** Public pinned repositories in the shape the cards use. Private pins are never saved. */
+const toPinned = (nodes: any[] | null | undefined): GithubData['pinned'] =>
+  (nodes ?? [])
     .filter((r: any) => r && r.name && !r.isPrivate)
     .map((r: any) => ({
       name: r.name,
@@ -104,7 +98,49 @@ const data: GithubData = {
       topics: r.repositoryTopics.nodes.map((t: any) => t.topic.name),
       pushedAt: r.pushedAt,
       lastCommitAt: r.defaultBranchRef?.target?.committedDate ?? null,
-    })),
+    }));
+
+/** Counts only, so a private pin never shows up by name in the public Actions log. */
+const describe = (nodes: any[] | null | undefined) => {
+  const list = nodes ?? [];
+  const named = list.filter((r: any) => r && r.name);
+  return `${list.length} returned, ${named.length} readable, ${named.filter((r: any) => r.isPrivate).length} private`;
+};
+
+let pinned = toPinned(u.pinnedItems?.nodes);
+console.log(`Pinned items (${includesPrivate ? 'PROFILE_TOKEN' : 'GITHUB_TOKEN'}): ${describe(u.pinnedItems?.nodes)}.`);
+
+// A personal token can come back without the pins (seen after the owner changed them), while the
+// public pins are readable by any token. Ask again with the workflow token before giving up.
+if (!pinned.length && includesPrivate && fallback) {
+  try {
+    const pub = await read(fallback, false);
+    console.log(`Pinned items (GITHUB_TOKEN): ${describe(pub.pinnedItems?.nodes)}.`);
+    pinned = toPinned(pub.pinnedItems?.nodes);
+  } catch (error) {
+    console.warn(`Could not read the pins with GITHUB_TOKEN. ${(error as Error).message}`);
+  }
+}
+
+// Never publish an empty "What I've built" because of a bad read: keep the last list and say so.
+const dataFile = new URL('../data/github.json', import.meta.url);
+if (!pinned.length && existsSync(dataFile)) {
+  const previous = JSON.parse(readFileSync(dataFile, 'utf8')) as GithubData;
+  if (previous.pinned?.length) {
+    console.warn(`::warning::No public pinned repository came back; keeping the ${previous.pinned.length} from the last run.`);
+    pinned = previous.pinned;
+  }
+}
+
+const data: GithubData = {
+  fetchedAt: new Date().toISOString(),
+  user: {
+    login: u.login,
+    publicRepos: u.publicRepos.totalCount,
+    privateRepos: includesPrivate ? u.privateRepos.totalCount : null,
+    followers: u.followers.totalCount,
+  },
+  pinned,
   contributions: {
     total: u.contributionsCollection.contributionCalendar.totalContributions,
     days: u.contributionsCollection.contributionCalendar.weeks.flatMap((w: any) =>
@@ -116,5 +152,5 @@ const data: GithubData = {
 };
 
 mkdirSync(new URL('../data/', import.meta.url), { recursive: true });
-writeFileSync(new URL('../data/github.json', import.meta.url), `${JSON.stringify(data, null, 2)}\n`);
+writeFileSync(dataFile, `${JSON.stringify(data, null, 2)}\n`);
 console.log(`Saved ${data.pinned.length} pinned repositories and ${data.contributions?.total} contributions (${includesPrivate ? 'public and private' : 'public only'}).`);
