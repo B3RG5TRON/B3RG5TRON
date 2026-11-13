@@ -1,0 +1,50 @@
+name: Update profile cards
+
+# Reads the public profile data, redraws the SVG cards and commits them when they changed.
+on:
+  schedule:
+    - cron: '17 6 * * *' # every day at 06:17 UTC (03:17 in Porto Alegre)
+  workflow_dispatch:
+  push:
+    branches: [main, 'claude/**']
+    paths:
+      - 'src/**'
+      - 'scripts/**'
+      - 'design/**'
+      - 'assets/**'
+      - 'package*.json'
+      - '.github/workflows/update-cards.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-cards-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  cards:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run typecheck
+      - name: Fetch data and draw cards
+        run: npm run build
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Commit when something changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add README.md README.pt-BR.md cards data
+          if git diff --cached --quiet; then
+            echo "Nothing changed."
+          else
+            git commit -m "chore: refresh profile cards"
+            git push
+          fi
