@@ -266,7 +266,7 @@ export const certificates = {
       id: 'explorer',
       file: 'assets/certificates/explorer.webp',
       href: 'https://app.rocketseat.com.br/certificates/86e53a02-b941-4186-8ce0-0f2224f3ad63',
-      title: { en: 'Explorer program', pt: 'Formação Explorer' },
+      title: { en: 'Full Stack Software Developer', pt: 'Full Stack Software Developer' },
       issuer: 'Rocketseat',
       kind: 'program',
       date: { en: 'Jun 2025', pt: 'jun 2025' },
