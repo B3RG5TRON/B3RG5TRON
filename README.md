@@ -16,7 +16,7 @@
 
 <a href="https://github.com/B3RG5TRON"><picture><source media="(prefers-color-scheme: dark)" srcset="./cards/dark/en/heatmap.svg"/><img width="100%" alt="GitHub contributions in the last 12 months: 97" src="./cards/light/en/heatmap.svg"/></picture></a>
 
-<picture><source media="(prefers-color-scheme: dark)" srcset="./cards/dark/en/languages.svg"/><img width="100%" alt="Languages used in public repositories: JavaScript 63.4%, TypeScript 14.1%, HTML 11.0%, CSS 10.0%, C# 1.5%" src="./cards/light/en/languages.svg"/></picture>
+<picture><source media="(prefers-color-scheme: dark)" srcset="./cards/dark/en/languages.svg"/><img width="100%" alt="Languages used in public and private repositories: TypeScript 70.3%, C# 15.6%, JavaScript 9.1%, CSS 2.8%, PowerShell 1.6%, HTML 0.2%, TSQL 0.1%, Other 0.1%" src="./cards/light/en/languages.svg"/></picture>
 
 <picture><source media="(prefers-color-scheme: dark)" srcset="./cards/dark/en/title-building.svg"/><img width="100%" alt="04 What I'm building" src="./cards/light/en/title-building.svg"/></picture>
 

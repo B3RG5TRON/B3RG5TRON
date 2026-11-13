@@ -1,8 +1,9 @@
 {
-  "fetchedAt": "2026-11-13T00:42:49.439Z",
+  "fetchedAt": "2026-11-13T18:58:55.752Z",
   "user": {
     "login": "B3RG5TRON",
-    "publicRepos": 20,
+    "publicRepos": 16,
+    "privateRepos": 8,
     "followers": 15
   },
   "pinned": [
@@ -1124,11 +1125,11 @@
       },
       {
         "date": "2026-07-24",
-        "count": 0
+        "count": 1
       },
       {
         "date": "2026-07-25",
-        "count": 1
+        "count": 0
       },
       {
         "date": "2026-07-26",
@@ -1264,11 +1265,11 @@
       },
       {
         "date": "2026-08-28",
-        "count": 10
+        "count": 12
       },
       {
         "date": "2026-08-29",
-        "count": 10
+        "count": 8
       },
       {
         "date": "2026-08-30",
@@ -1578,29 +1579,50 @@
   },
   "languages": [
     {
-      "name": "JavaScript",
-      "color": "#f1e05a",
-      "bytes": 373822
-    },
-    {
       "name": "TypeScript",
       "color": "#3178c6",
-      "bytes": 83455
-    },
-    {
-      "name": "HTML",
-      "color": "#e34c26",
-      "bytes": 64820
-    },
-    {
-      "name": "CSS",
-      "color": "#663399",
-      "bytes": 58855
+      "bytes": 3866512
     },
     {
       "name": "C#",
       "color": "#7355dd",
-      "bytes": 8901
+      "bytes": 857037
+    },
+    {
+      "name": "JavaScript",
+      "color": "#f1e05a",
+      "bytes": 501993
+    },
+    {
+      "name": "CSS",
+      "color": "#663399",
+      "bytes": 156379
+    },
+    {
+      "name": "PowerShell",
+      "color": "#012456",
+      "bytes": 89109
+    },
+    {
+      "name": "HTML",
+      "color": "#e34c26",
+      "bytes": 12000
+    },
+    {
+      "name": "TSQL",
+      "color": "#e38c00",
+      "bytes": 7940
+    },
+    {
+      "name": "PLpgSQL",
+      "color": "#336790",
+      "bytes": 3734
+    },
+    {
+      "name": "Dockerfile",
+      "color": "#384d54",
+      "bytes": 1986
     }
-  ]
+  ],
+  "includesPrivate": true
 }
