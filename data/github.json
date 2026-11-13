@@ -1,0 +1,14 @@
+{
+  "fetchedAt": "2026-11-12T20:40:00.000Z",
+  "user": { "login": "B3RG5TRON", "publicRepos": 20, "followers": 15 },
+  "pinned": [
+    { "name": "Food_Explorer_ReactJS", "description": null, "url": "https://github.com/B3RG5TRON/Food_Explorer_ReactJS", "homepage": null, "language": { "name": "JavaScript", "color": "#f1e05a" }, "stars": 0, "forks": 0, "topics": [], "pushedAt": null },
+    { "name": "Food_Explorer_NodeJS_API", "description": null, "url": "https://github.com/B3RG5TRON/Food_Explorer_NodeJS_API", "homepage": null, "language": { "name": "JavaScript", "color": "#f1e05a" }, "stars": 0, "forks": 0, "topics": [], "pushedAt": null },
+    { "name": "Explorer_Stage_09_ReactJS_RocketNotes", "description": "Este repositório se trata do front-end da aplicação RocketNotes. Esta aplicação disponibiliza aos usuários a possibilidade de realizar um cadastrar e gerar anotações sobre assuntos que desejar.", "url": "https://github.com/B3RG5TRON/Explorer_Stage_09_ReactJS_RocketNotes", "homepage": null, "language": { "name": "JavaScript", "color": "#f1e05a" }, "stars": 0, "forks": 0, "topics": [], "pushedAt": null },
+    { "name": "Explorer_Stage_08_NodeJS_RocketNotes_API", "description": "Este repositório se trata do back-end da aplicação RocketNotes. Na qual está é uma aplicação web onde os usuários podem realizar um cadastrar e gerar anotações sobre assuntos que desejar.", "url": "https://github.com/B3RG5TRON/Explorer_Stage_08_NodeJS_RocketNotes_API", "homepage": null, "language": { "name": "JavaScript", "color": "#f1e05a" }, "stars": 0, "forks": 0, "topics": [], "pushedAt": null },
+    { "name": "ShortsSumary", "description": "Shorts Summary é uma aplicação web para criar resumo de vídeos shorts do Youtube utilizando Inteligência Artificial para transcrever o conteúdo do vídeo e realizar o resumo do conteúdo.", "url": "https://github.com/B3RG5TRON/ShortsSumary", "homepage": null, "language": { "name": "JavaScript", "color": "#f1e05a" }, "stars": 0, "forks": 0, "topics": [], "pushedAt": null },
+    { "name": "Habit", "description": "Esse projeto foi feito durante a NLW Setup da Rocketseat na trilha Ignite, em sua 11° edição, onde desenvolvemos um website que faz o controle de hábitos.", "url": "https://github.com/B3RG5TRON/Habit", "homepage": null, "language": { "name": "TypeScript", "color": "#3178c6" }, "stars": 0, "forks": 0, "topics": [], "pushedAt": null }
+  ],
+  "contributions": null,
+  "languages": null
+}
