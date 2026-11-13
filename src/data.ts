@@ -10,6 +10,8 @@ export type Repo = {
   forks: number;
   topics: string[];
   pushedAt: string | null;
+  /** Date of the newest commit on the default branch. Unlike pushedAt, a history rewrite does not change it. */
+  lastCommitAt?: string | null;
 };
 
 export type Day = { date: string; count: number };

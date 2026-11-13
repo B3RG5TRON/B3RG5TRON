@@ -252,7 +252,8 @@ export function repoCard(lang: Lang, theme: ThemeName, repo: Repo): Card {
   const title = extra?.title ?? repo.name.replace(/_/g, ' ');
   const text = extra?.text[lang] ?? repo.description ?? '';
   const stackList = extra?.stack ?? (repo.language ? [repo.language.name] : []);
-  const year = repo.pushedAt ? String(new Date(repo.pushedAt).getUTCFullYear()) : '';
+  const when = repo.lastCommitAt ?? repo.pushedAt;
+  const year = when ? String(new Date(when).getUTCFullYear()) : '';
   const card = new Card(THIRD, H, theme, `${title}${year ? ` (${year})` : ''}${text ? `: ${text}` : ''} ${stackList.join(', ')}`);
   const t = card.t;
   card.frame();

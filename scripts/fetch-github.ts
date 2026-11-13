@@ -29,6 +29,7 @@ const query = /* GraphQL */ `
         nodes {
           ... on Repository {
             name description url homepageUrl isPrivate stargazerCount forkCount pushedAt
+            defaultBranchRef { target { ... on Commit { committedDate } } }
             primaryLanguage { name color }
             repositoryTopics(first: 6) { nodes { topic { name } } }
           }
@@ -102,6 +103,7 @@ const data: GithubData = {
       forks: r.forkCount,
       topics: r.repositoryTopics.nodes.map((t: any) => t.topic.name),
       pushedAt: r.pushedAt,
+      lastCommitAt: r.defaultBranchRef?.target?.committedDate ?? null,
     })),
   contributions: {
     total: u.contributionsCollection.contributionCalendar.totalContributions,
