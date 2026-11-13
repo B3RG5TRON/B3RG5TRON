@@ -1,105 +1,14 @@
 {
-  "fetchedAt": "2026-11-13T20:38:57.746Z",
+  "fetchedAt": "2026-11-13T21:11:21.159Z",
   "user": {
     "login": "B3RG5TRON",
-    "publicRepos": 16,
+    "publicRepos": 17,
     "privateRepos": 8,
     "followers": 15
   },
-  "pinned": [
-    {
-      "name": "Food_Explorer_ReactJS",
-      "description": null,
-      "url": "https://github.com/B3RG5TRON/Food_Explorer_ReactJS",
-      "homepage": null,
-      "language": {
-        "name": "JavaScript",
-        "color": "#f1e05a"
-      },
-      "stars": 0,
-      "forks": 0,
-      "topics": [],
-      "pushedAt": "2026-11-13T20:34:03Z",
-      "lastCommitAt": "2025-05-24T22:24:48Z"
-    },
-    {
-      "name": "Food_Explorer_NodeJS_API",
-      "description": null,
-      "url": "https://github.com/B3RG5TRON/Food_Explorer_NodeJS_API",
-      "homepage": null,
-      "language": {
-        "name": "JavaScript",
-        "color": "#f1e05a"
-      },
-      "stars": 0,
-      "forks": 0,
-      "topics": [],
-      "pushedAt": "2026-11-13T20:33:56Z",
-      "lastCommitAt": "2025-05-24T20:53:18Z"
-    },
-    {
-      "name": "Explorer_Stage_09_ReactJS_RocketNotes",
-      "description": "Este repositório se trata do front-end da aplicação RocketNotes. Esta aplicação disponibiliza aos usuários a possibilidade de realizar um cadastrar e gerar anotações sobre assuntos que desejar.",
-      "url": "https://github.com/B3RG5TRON/Explorer_Stage_09_ReactJS_RocketNotes",
-      "homepage": null,
-      "language": {
-        "name": "JavaScript",
-        "color": "#f1e05a"
-      },
-      "stars": 0,
-      "forks": 0,
-      "topics": [],
-      "pushedAt": "2026-11-13T20:33:44Z",
-      "lastCommitAt": "2025-03-26T16:50:59Z"
-    },
-    {
-      "name": "Explorer_Stage_08_NodeJS_RocketNotes_API",
-      "description": "Este repositório se trata do back-end da aplicação RocketNotes. Na qual está é uma aplicação web onde os usuários podem realizar um cadastrar e gerar anotações sobre assuntos que desejar. ",
-      "url": "https://github.com/B3RG5TRON/Explorer_Stage_08_NodeJS_RocketNotes_API",
-      "homepage": null,
-      "language": {
-        "name": "JavaScript",
-        "color": "#f1e05a"
-      },
-      "stars": 0,
-      "forks": 0,
-      "topics": [],
-      "pushedAt": "2026-11-13T20:33:53Z",
-      "lastCommitAt": "2025-02-26T21:51:51Z"
-    },
-    {
-      "name": "ShortsSumary",
-      "description": "Shorts Summary é uma aplicação web para criar resumo de vídeos shorts do Youtube utilizando Inteligência Artificial para transcrever o conteúdo do vídeo e realizar o resumo do conteúdo.",
-      "url": "https://github.com/B3RG5TRON/ShortsSumary",
-      "homepage": null,
-      "language": {
-        "name": "JavaScript",
-        "color": "#f1e05a"
-      },
-      "stars": 0,
-      "forks": 0,
-      "topics": [],
-      "pushedAt": "2026-11-13T20:33:47Z",
-      "lastCommitAt": "2023-09-15T01:52:07Z"
-    },
-    {
-      "name": "Habit",
-      "description": "Esse projeto foi feito durante a NLW Setup da Rocketseat na trilha Ignite, em sua 11° edição, onde desenvolvemos um website que faz o controle de hábitos.",
-      "url": "https://github.com/B3RG5TRON/Habit",
-      "homepage": null,
-      "language": {
-        "name": "TypeScript",
-        "color": "#3178c6"
-      },
-      "stars": 0,
-      "forks": 0,
-      "topics": [],
-      "pushedAt": "2026-11-13T20:34:15Z",
-      "lastCommitAt": "2023-11-06T18:46:09Z"
-    }
-  ],
+  "pinned": [],
   "contributions": {
-    "total": 102,
+    "total": 106,
     "days": [
       {
         "date": "2025-11-09",
@@ -1579,7 +1488,7 @@
       },
       {
         "date": "2026-11-13",
-        "count": 3
+        "count": 7
       }
     ]
   },
@@ -1587,7 +1496,7 @@
     {
       "name": "TypeScript",
       "color": "#3178c6",
-      "bytes": 3952764
+      "bytes": 3996708
     },
     {
       "name": "C#",
@@ -1597,12 +1506,12 @@
     {
       "name": "JavaScript",
       "color": "#f1e05a",
-      "bytes": 501993
+      "bytes": 502060
     },
     {
       "name": "CSS",
       "color": "#663399",
-      "bytes": 156379
+      "bytes": 159709
     },
     {
       "name": "PowerShell",
@@ -1612,7 +1521,7 @@
     {
       "name": "HTML",
       "color": "#e34c26",
-      "bytes": 12000
+      "bytes": 13538
     },
     {
       "name": "TSQL",
@@ -1627,7 +1536,7 @@
     {
       "name": "Dockerfile",
       "color": "#384d54",
-      "bytes": 1986
+      "bytes": 2432
     }
   ],
   "includesPrivate": true
