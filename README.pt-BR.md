@@ -14,7 +14,7 @@
 
 <a href="https://www.linkedin.com/in/eduardo-bergstron-986108143/"><picture><source media="(prefers-color-scheme: dark)" srcset="./cards/dark/pt/tile-work.svg"/><img width="33.33%" alt="trabalho: Klassmatt, Desenvolvedor Full Stack Júnior" src="./cards/light/pt/tile-work.svg"/></picture></a><a href="https://www.linkedin.com/feed/update/urn:li:activity:7526636901034987520/"><picture><source media="(prefers-color-scheme: dark)" srcset="./cards/dark/pt/tile-shipped.svg"/><img width="33.33%" alt="entrega: Canal de Denúncias, LGPD · Azure · 2026" src="./cards/light/pt/tile-shipped.svg"/></picture></a><a href="https://app.rocketseat.com.br/certificates/09da2ade-3667-41f8-933d-16cd36c43016"><picture><source media="(prefers-color-scheme: dark)" srcset="./cards/dark/pt/tile-certified.svg"/><img width="33.33%" alt="certificação: Especialização em C#, Rocketseat · 100 h · 2026" src="./cards/light/pt/tile-certified.svg"/></picture></a>
 
-<a href="https://github.com/B3RG5TRON"><picture><source media="(prefers-color-scheme: dark)" srcset="./cards/dark/pt/heatmap.svg"/><img width="100%" alt="Contribuições no GitHub nos últimos 12 meses: 96" src="./cards/light/pt/heatmap.svg"/></picture></a>
+<a href="https://github.com/B3RG5TRON"><picture><source media="(prefers-color-scheme: dark)" srcset="./cards/dark/pt/heatmap.svg"/><img width="100%" alt="Contribuições no GitHub nos últimos 12 meses: 97" src="./cards/light/pt/heatmap.svg"/></picture></a>
 
 <picture><source media="(prefers-color-scheme: dark)" srcset="./cards/dark/pt/title-projects.svg"/><img width="100%" alt="Projetos, fixados no GitHub, atualizados todo dia" src="./cards/light/pt/title-projects.svg"/></picture>
 
