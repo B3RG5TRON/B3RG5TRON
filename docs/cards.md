@@ -6,6 +6,7 @@ The README is a set of SVG cards drawn by a script, because GitHub does not run 
 | --- | --- |
 | Texts, links, experience, stack, featured posts | `src/content.ts` |
 | Project pictures, texts and stack ("What I'm building" and "What I've built") | `building` and `projects.details` in `src/content.ts`, pictures in `assets/projects/` (16:9 WebP) |
+| Certificates (title, issuer, date, hours, credential link) | `certificates` in `src/content.ts`, images in `assets/certificates/` (960 x 604 WebP, about 1.59:1). A certificate whose image is missing is left out |
 | Colours, fonts, radius, motion | `design/tokens.json` |
 | Layout of one card | `src/cards/` |
 | Order of the cards in the README | `layout()` in `src/render.ts` |

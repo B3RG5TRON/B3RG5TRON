@@ -2,15 +2,15 @@
  * Draws every card as an SVG file and rebuilds both READMEs.
  * Run with "npm run cards" after "npm run fetch".
  */
-import { mkdirSync, rmSync, writeFileSync } from 'node:fs';
+import { existsSync, mkdirSync, rmSync, writeFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import type { Card } from './svg.ts';
 import type { ThemeName } from './tokens.ts';
-import { alt, building, contact, LANGS, posts, profile, show, switcher, type Lang } from './content.ts';
+import { alt, building, certificates, contact, LANGS, posts, profile, show, switcher, type Lang } from './content.ts';
 import { loadData, type GithubData } from './data.ts';
 import { hero } from './cards/hero.ts';
 import {
-  aboutCard, buildingCard, buildingTitle, contactCard, experienceCard, footerCard, langPill, linkCard, postCard,
+  aboutCard, buildingCard, buildingTitle, certificateCard, certificatesTitle, contactCard, experienceCard, footerCard, langPill, linkCard, postCard,
   postsTitle, projectsTitle, repoCard, stackCard,
 } from './cards/sections.ts';
 import { activityCard, heatmapCard, languagesCard } from './cards/stats.ts';
@@ -62,6 +62,18 @@ export function layout(data: GithubData): Row[] {
         width: '50%',
         href: post.href,
         build: (l: Lang, t: ThemeName) => postCard(l, t, post.id),
+      })),
+    });
+  }
+  const certs = certificates.items.filter((c) => existsSync(new URL(`../${c.file}`, import.meta.url)));
+  if (certs.length) rows.push(full('title-certificates', (l, t) => certificatesTitle(l, t)));
+  for (let i = 0; i < certs.length; i += 2) {
+    rows.push({
+      items: certs.slice(i, i + 2).map((cert) => ({
+        name: `certificate-${cert.id}`,
+        width: '50%',
+        href: cert.href,
+        build: (l: Lang, t: ThemeName) => certificateCard(l, t, cert.id),
       })),
     });
   }

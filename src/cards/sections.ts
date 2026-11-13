@@ -1,7 +1,7 @@
 import { Card, n, type Span } from '../svg.ts';
 import { balance, clamp, measure, wrap } from '../fonts.ts';
 import { PAD, W, tokens, type ThemeName } from '../tokens.ts';
-import { about, building, contact, experience, footer, formatDate, posts, profile, projects, stack, switcher, type Lang } from '../content.ts';
+import { about, building, certificates, contact, experience, footer, formatDate, posts, profile, projects, stack, switcher, type Lang } from '../content.ts';
 import type { GithubData, Repo } from '../data.ts';
 import { readFileSync } from 'node:fs';
 
@@ -150,6 +150,8 @@ export function titleStrip(lang: Lang, theme: ThemeName, num: string, title: str
 export const buildingTitle = (lang: Lang, theme: ThemeName) => titleStrip(lang, theme, building.num, building.title[lang]);
 export const projectsTitle = (lang: Lang, theme: ThemeName) => titleStrip(lang, theme, projects.num, projects.title[lang], projects.note[lang]);
 export const postsTitle = (lang: Lang, theme: ThemeName) => titleStrip(lang, theme, posts.num, posts.title[lang], posts.note[lang]);
+export const certificatesTitle = (lang: Lang, theme: ThemeName) =>
+  titleStrip(lang, theme, certificates.num, certificates.title[lang], certificates.note[lang]);
 
 /** A project in progress: a wide card with the screenshot on the left and the pitch on the right. */
 export function buildingCard(lang: Lang, theme: ThemeName, id: string): Card {
@@ -282,6 +284,28 @@ export function postCard(lang: Lang, theme: ThemeName, id: string): Card {
   card.put(HALF - 28, 42.5, post.date[lang], { size: 11.5, mono: true, fill: t.text3, anchor: 'end' });
   const y = card.lines(28, 82, title, 22, { size: 16, weight: 600, tracking: -0.1 });
   card.lines(28, y + 4, text, 19, { size: 13, fill: t.text2 });
+  return card;
+}
+
+/** A certificate: its image on top, then the title, and the issuer, kind, hours and date below. */
+export function certificateCard(lang: Lang, theme: ThemeName, id: string): Card {
+  const item = certificates.items.find((c) => c.id === id)!;
+  const pad = 14;
+  const iw = HALF - 2 * pad;
+  const ih = Math.round(iw / 1.59); // the issuers' certificates are close to 1.59:1
+  const H = pad + ih + 82;
+  const inner = HALF - 2 * 24;
+  const kind = certificates.kinds[item.kind][lang];
+  const meta = [item.issuer, kind, item.hours ? `${item.hours} h` : ''].filter(Boolean).join(' · ');
+  const card = new Card(HALF, H, theme, `${item.title[lang]}, ${meta}, ${item.date[lang]}`);
+  const t = card.t;
+  card.frame();
+  card.image(item.file, pad, pad, iw, ih, 9);
+  const ty = pad + ih + 34;
+  const dateW = measure(item.date[lang], 'mono400', 11.5) + 14;
+  card.put(24, ty, clamp(item.title[lang], inner - dateW, 'sans600', 16, 1)[0], { size: 16, weight: 600, tracking: -0.2 });
+  card.put(HALF - 24, ty - 1, item.date[lang], { size: 11.5, mono: true, fill: t.text3, anchor: 'end' });
+  card.put(24, ty + 25, clamp(meta, inner, 'mono400', 11.5, 1)[0], { size: 11.5, mono: true, fill: t.text2 });
   return card;
 }
 

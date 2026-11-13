@@ -237,6 +237,102 @@ export const posts = {
   ] as { id: string; kind: string; href: string; date: L; title: L; text: L }[],
 };
 
+/**
+ * Certificates listed on LinkedIn, newest first. Each card shows the certificate image from
+ * assets/certificates/ and links to the issuer's credential page. An item whose image file
+ * is missing is left out of the README until the file is added.
+ */
+export const certificates = {
+  num: '07',
+  title: { en: 'Certificates', pt: 'Certificados' } as L,
+  note: { en: 'from LinkedIn', pt: 'do LinkedIn' } as L,
+  kinds: {
+    program: { en: 'program', pt: 'formação' },
+    micro: { en: 'micro-certificate', pt: 'micro-certificado' },
+    course: { en: 'course', pt: 'curso' },
+  } as Record<string, L>,
+  items: [
+    {
+      id: 'csharp',
+      file: 'assets/certificates/csharp.webp',
+      href: 'https://app.rocketseat.com.br/certificates/09da2ade-3667-41f8-933d-16cd36c43016',
+      title: { en: 'C# program', pt: 'Formação C#' },
+      issuer: 'Rocketseat',
+      kind: 'program',
+      date: { en: 'Mar 2026', pt: 'mar 2026' },
+      hours: 100,
+    },
+    {
+      id: 'explorer',
+      file: 'assets/certificates/explorer.webp',
+      href: 'https://app.rocketseat.com.br/certificates/86e53a02-b941-4186-8ce0-0f2224f3ad63',
+      title: { en: 'Explorer program', pt: 'Formação Explorer' },
+      issuer: 'Rocketseat',
+      kind: 'program',
+      date: { en: 'Jun 2025', pt: 'jun 2025' },
+      hours: 100,
+    },
+    {
+      id: 'deploy',
+      file: 'assets/certificates/deploy.webp',
+      href: 'https://app.rocketseat.com.br/certificates/a496003f-d155-4215-83eb-9794acc00ec3',
+      title: { en: 'Deploy', pt: 'Deploy' },
+      issuer: 'Rocketseat',
+      kind: 'micro',
+      date: { en: 'Feb 2025', pt: 'fev 2025' },
+      hours: 3,
+    },
+    {
+      id: 'integration',
+      file: 'assets/certificates/integration.webp',
+      href: 'https://app.rocketseat.com.br/certificates/7795c025-f139-4010-97d6-d971d6696374',
+      title: { en: 'Back-end and front-end integration', pt: 'Integração Backend com Frontend' },
+      issuer: 'Rocketseat',
+      kind: 'micro',
+      date: { en: 'Dec 2024', pt: 'dez 2024' },
+      hours: 7,
+    },
+    {
+      id: 'frontend',
+      file: 'assets/certificates/frontend.webp',
+      href: 'https://app.rocketseat.com.br/certificates/ae67556a-3df8-46aa-ba86-5d49420e525e',
+      title: { en: 'Frontend', pt: 'Frontend' },
+      issuer: 'Rocketseat',
+      kind: 'micro',
+      date: { en: 'Jun 2024', pt: 'jun 2024' },
+      hours: 6,
+    },
+    {
+      id: 'backend',
+      file: 'assets/certificates/backend.webp',
+      href: 'https://app.rocketseat.com.br/certificates/9f247afe-edaf-4e00-917d-8c85df130a6b',
+      title: { en: 'Backend', pt: 'Backend' },
+      issuer: 'Rocketseat',
+      kind: 'micro',
+      date: { en: 'May 2024', pt: 'mai 2024' },
+      hours: 8,
+    },
+    {
+      id: 'advanced-javascript',
+      file: 'assets/certificates/advanced-javascript.webp',
+      href: 'https://www.linkedin.com/feed/update/urn:li:activity:7135842154291093505/',
+      title: { en: 'JavaScript Advanced', pt: 'JavaScript Advanced' },
+      issuer: 'Programming Hub',
+      kind: 'course',
+      date: { en: 'Nov 2023', pt: 'nov 2023' },
+    },
+    {
+      id: 'react',
+      file: 'assets/certificates/react.webp',
+      href: 'https://www.linkedin.com/in/eduardo-bergstron-986108143/details/certifications/',
+      title: { en: 'React Development', pt: 'React Development' },
+      issuer: 'Programming Hub',
+      kind: 'course',
+      date: { en: 'Sep 2023', pt: 'set 2023' },
+    },
+  ] as { id: string; file: string; href: string; title: L; issuer: string; kind: string; date: L; hours?: number }[],
+};
+
 /** Screens of the whistleblowing channel, shown with the company's permission. */
 export const screens = {
   href: 'https://www.linkedin.com/feed/update/urn:li:activity:7526636901034987520/',
