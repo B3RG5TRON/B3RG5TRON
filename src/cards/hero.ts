@@ -119,10 +119,17 @@ export function hero(lang: Lang, theme: ThemeName, data: GithubData): Card {
     card.put(cx, py + 82 + i * 23, spans, { size: 12, mono: true, cls: 'rise', delay: base + 0.5 + i * 0.11 }),
   );
 
-  const meta =
-    lang === 'en'
-      ? `${data.user.publicRepos} public repositories · updated ${formatDate(data.fetchedAt, lang)}`
-      : `${data.user.publicRepos} repositórios públicos · atualizado em ${formatDate(data.fetchedAt, lang)}`;
+  const { publicRepos, privateRepos } = data.user;
+  const updated = lang === 'en' ? `updated ${formatDate(data.fetchedAt, lang)}` : `atualizado em ${formatDate(data.fetchedAt, lang)}`;
+  const repos =
+    privateRepos != null
+      ? lang === 'en'
+        ? `${publicRepos + privateRepos} repositories, ${privateRepos} private`
+        : `${publicRepos + privateRepos} repositórios, ${privateRepos} privados`
+      : lang === 'en'
+        ? `${publicRepos} public repositories`
+        : `${publicRepos} repositórios públicos`;
+  const meta = `${repos} · ${updated}`;
   card.put(W - PAD, H - 26, meta, { size: 11, mono: true, fill: t.text3, anchor: 'end', cls: 'fade', delay: done + 0.1 });
   return card;
 }

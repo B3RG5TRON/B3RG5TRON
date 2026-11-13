@@ -171,11 +171,11 @@ export function languagesCard(lang: Lang, theme: ThemeName, data: GithubData): C
     x += w;
   }
   const H = 146 + row * 24 + 30;
-  const card = new Card(W, H, theme, `${alt.languages[lang]}: ${items.map((i) => `${i.name} ${pct(i.share)}`).join(', ')}`);
+  const card = new Card(W, H, theme, `${(data.includesPrivate ? alt.languagesAll : alt.languages)[lang]}: ${items.map((i) => `${i.name} ${pct(i.share)}`).join(', ')}`);
   const t = card.t;
   card.frame();
   card.put(PAD, 62, activity.languagesTitle[lang], { size: 22, weight: 600, tracking: -0.4 });
-  card.put(W - PAD, 62, activity.languagesNote[lang], { size: 12, mono: true, fill: t.text3, anchor: 'end' });
+  card.put(W - PAD, 62, (data.includesPrivate ? activity.languagesNoteAll : activity.languagesNote)[lang], { size: 12, mono: true, fill: t.text3, anchor: 'end' });
 
   const bw = W - 2 * PAD;
   const id = card.uid('bar');

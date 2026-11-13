@@ -6,12 +6,12 @@ import { mkdirSync, rmSync, writeFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import type { Card } from './svg.ts';
 import type { ThemeName } from './tokens.ts';
-import { alt, contact, LANGS, posts, profile, screens, show, switcher, tiles, type Lang } from './content.ts';
+import { alt, building, contact, LANGS, posts, profile, screens, show, switcher, type Lang } from './content.ts';
 import { loadData, type GithubData } from './data.ts';
 import { hero } from './cards/hero.ts';
 import {
-  aboutCard, contactCard, experienceCard, footerCard, langPill, linkCard, postCard, postsTitle,
-  projectsTitle, repoCard, screenCard, tileCard,
+  aboutCard, buildingCard, buildingTitle, contactCard, experienceCard, footerCard, langPill, linkCard, postCard,
+  postsTitle, projectsTitle, repoCard, screenCard, stackCard,
 } from './cards/sections.ts';
 import { activityCard, heatmapCard, languagesCard } from './cards/stats.ts';
 
@@ -36,9 +36,12 @@ export function layout(data: GithubData): Row[] {
     full('hero', (l, t) => hero(l, t, data), profile.linkedin),
     full('about', (l, t) => aboutCard(l, t)),
     full('experience', (l, t) => experienceCard(l, t), profile.linkedin),
-    { items: tiles.map((tile) => ({ name: `tile-${tile.id}`, width: '33.33%', href: tile.href, build: (l: Lang, t: ThemeName) => tileCard(l, t, tile.id) })) },
+    full('stack', (l, t) => stackCard(l, t)),
     full('heatmap', (l, t) => (show.heatmap ? heatmapCard(l, t, data) : null), profile.github),
     full('activity', (l, t) => (show.activity ? activityCard(l, t, data) : null)),
+    full('languages', (l, t) => (show.languages ? languagesCard(l, t, data) : null)),
+    full('title-building', (l, t) => buildingTitle(l, t)),
+    ...building.items.map((item) => full(`building-${item.id}`, (l, t) => buildingCard(l, t, item.id))),
     full('title-projects', (l, t) => projectsTitle(l, t)),
   ];
   for (let i = 0; i < data.pinned.length; i += 3) {
@@ -71,9 +74,8 @@ export function layout(data: GithubData): Row[] {
     })),
   });
   rows.push(
-    full('languages', (l, t) => (show.languages ? languagesCard(l, t, data) : null)),
     full('contact', (l, t) => contactCard(l, t), `mailto:${profile.email}`),
-    { items: contact.links.map((link) => ({ name: `link-${link.id}`, width: '33.33%', href: link.href, build: (l: Lang, t: ThemeName) => linkCard(l, t, link.id) })) },
+    { items: contact.links.map((link) => ({ name: `link-${link.id}`, width: `${Math.round(10000 / contact.links.length) / 100}%`, href: link.href, build: (l: Lang, t: ThemeName) => linkCard(l, t, link.id) })) },
     full('footer', (l, t) => footerCard(l, t, data)),
   );
   return rows;

@@ -1,3 +1,4 @@
+import { readFileSync } from 'node:fs';
 import { tokens, type Theme, type ThemeName } from './tokens.ts';
 import { fontFace, measure, type FontKey } from './fonts.ts';
 
@@ -137,6 +138,28 @@ export class Card {
       .map((b) => `<circle cx="${b.cx}" cy="${b.cy}" r="${b.r}" fill="${b.color}" opacity="${n(b.opacity)}"/>`)
       .join('');
     return this.add(`<g clip-path="url(#clip)"><g filter="url(#blur${blur})">${circles}</g></g>`);
+  }
+
+  /**
+   * A picture from the repository, inlined as a data URI (an SVG shown through <img> cannot load files),
+   * clipped to a rounded rectangle and outlined so light and dark pictures both keep an edge.
+   */
+  image(file: string, x: number, y: number, w: number, h: number, r: number) {
+    const ext = file.split('.').pop()!.toLowerCase();
+    const type = ext === 'svg' ? 'image/svg+xml' : ext === 'png' ? 'image/png' : ext === 'jpg' ? 'image/jpeg' : 'image/webp';
+    const b64 = readFileSync(new URL(`../${file}`, import.meta.url)).toString('base64');
+    const id = this.uid('ic');
+    this.def(id, `<clipPath id="${id}"><rect x="${n(x)}" y="${n(y)}" width="${n(w)}" height="${n(h)}" rx="${r}"/></clipPath>`);
+    return this.add(
+      `<image x="${n(x)}" y="${n(y)}" width="${n(w)}" height="${n(h)}" clip-path="url(#${id})" preserveAspectRatio="xMidYMid slice" href="data:${type};base64,${b64}"/>`,
+      `<rect x="${n(x + 0.5)}" y="${n(y + 0.5)}" width="${n(w - 1)}" height="${n(h - 1)}" rx="${n(r - 0.5)}" fill="none" stroke="${this.t.border}"/>`,
+    );
+  }
+
+  /** A logo or icon inlined at its own aspect ratio, fitted inside the box. */
+  logo(file: string, x: number, y: number, w: number, h: number) {
+    const b64 = readFileSync(new URL(`../${file}`, import.meta.url)).toString('base64');
+    return this.add(`<image x="${n(x)}" y="${n(y)}" width="${n(w)}" height="${n(h)}" preserveAspectRatio="xMidYMid meet" href="data:image/svg+xml;base64,${b64}"/>`);
   }
 
   /** Liquid Glass surface: soft shadow, translucent fill, and an edge that is brightest at the top. */

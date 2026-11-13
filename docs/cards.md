@@ -4,7 +4,8 @@ The README is a set of SVG cards drawn by a script, because GitHub does not run 
 
 | To change | Edit |
 | --- | --- |
-| Texts, links, experience, featured posts | `src/content.ts` |
+| Texts, links, experience, stack, featured posts | `src/content.ts` |
+| Project pictures, texts and stack ("What I'm building" and "What I've built") | `building` and `projects.details` in `src/content.ts`, pictures in `assets/projects/` (16:9 WebP) |
 | Colours, fonts, radius, motion | `design/tokens.json` |
 | Layout of one card | `src/cards/` |
 | Order of the cards in the README | `layout()` in `src/render.ts` |
@@ -12,6 +13,8 @@ The README is a set of SVG cards drawn by a script, because GitHub does not run 
 | Screens of the whistleblowing channel | `assets/canal-denuncias/` (800 x 600 WebP) |
 
 Pinned repositories, contributions and languages come from the GitHub API and are saved in `data/github.json`.
+
+To also count private repositories, contributions and languages, add a repository secret named `PROFILE_TOKEN` with a fine-grained personal access token of the profile owner (all repositories, read-only metadata). Only totals are saved; no private repository name or file reaches the cards. If the token is missing or expires, the workflow falls back to public data.
 
 ## Commands
 

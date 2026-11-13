@@ -37,6 +37,8 @@ jobs:
         run: npm run build
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # Optional: a read-only token of the profile owner, so private repositories count too.
+          PROFILE_TOKEN: ${{ secrets.PROFILE_TOKEN }}
       - name: Commit when something changed
         run: |
           git config user.name "github-actions[bot]"

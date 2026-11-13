@@ -18,8 +18,8 @@ export const profile = {
   company: 'Klassmatt',
   role: { en: 'Full Stack Developer', pt: 'Desenvolvedor Full Stack' } as L,
   tagline: {
-    en: 'I build web applications in .NET and React and integrate ERP systems.',
-    pt: 'Desenvolvo aplicações web em .NET e React e integro sistemas ERP.',
+    en: 'I build web and mobile apps with .NET, React and Node.js and integrate systems.',
+    pt: 'Desenvolvo aplicações web e mobile com .NET, React e Node.js e integro sistemas.',
   } as L,
   /** The JSON shown in the hero panel: an API response describing the developer. */
   api: {
@@ -28,12 +28,14 @@ export const profile = {
       en: [
         ['role', '"Full Stack Developer"'],
         ['stack', '[".NET", "React", "Node.js"]'],
+        ['apps', '["web", "android", "ios"]'],
         ['focus', '"REST APIs, integrations"'],
         ['since', '2023'],
       ],
       pt: [
         ['role', '"Desenvolvedor Full Stack"'],
         ['stack', '[".NET", "React", "Node.js"]'],
+        ['apps', '["web", "android", "ios"]'],
         ['focus', '"APIs REST, integrações"'],
         ['since', '2023'],
       ],
@@ -42,20 +44,37 @@ export const profile = {
 };
 
 export const about = {
+  num: '01',
   title: { en: 'About me', pt: 'Sobre mim' } as L,
   text: {
-    en: 'Full stack developer since 2023, working day to day with .NET, React and Node.js on end-to-end web applications. I build REST APIs, integrate systems and work with data in relational databases. I ship with tests and code review, with performance, security and maintainability in mind.',
-    pt: 'Desenvolvedor full stack desde 2023, trabalho no dia a dia com .NET, React e Node.js em aplicações web de ponta a ponta. Construo APIs REST, integro sistemas e trabalho com dados em bancos relacionais. Entrego com testes e code review, cuidando de desempenho, segurança e manutenção.',
+    en: 'Full stack developer since 2023, working day to day with .NET, React and Node.js on end-to-end web and mobile (Android and iOS) applications. I build REST APIs, integrate systems and work with data in relational databases. I ship with tests and code review, with performance, security and maintainability in mind.',
+    pt: 'Desenvolvedor full stack desde 2023, trabalho no dia a dia com .NET, React e Node.js em aplicações web e mobile (Android e iOS) de ponta a ponta. Construo APIs REST, integro sistemas e trabalho com dados em bancos relacionais. Entrego com testes e code review, cuidando de desempenho, segurança e manutenção.',
   } as L,
+  /** Short label and value lines under the paragraph, drawn with an arrow like the reference profile. */
   facts: [
-    { label: { en: 'stack', pt: 'stack' }, value: { en: 'C#, VB.NET, JavaScript, TypeScript, SQL', pt: 'C#, VB.NET, JavaScript, TypeScript, SQL' } },
-    { label: { en: 'focus', pt: 'foco' }, value: { en: 'REST APIs, ERP integration (SAP) and SQL Server', pt: 'APIs REST, integração de ERP (SAP) e SQL Server' } },
-    { label: { en: 'practices', pt: 'práticas' }, value: { en: 'Integration testing, code review, Git and Azure DevOps', pt: 'Testes de integração, code review, Git e Azure DevOps' } },
-    { label: { en: 'based in', pt: 'base' }, value: { en: 'Porto Alegre, BR · UTC-3', pt: 'Porto Alegre, BR · UTC-3' } },
+    { label: { en: 'studying', pt: 'estudando' }, value: { en: 'Swift and Rust', pt: 'Swift e Rust' } },
+    { label: { en: 'focus', pt: 'foco' }, value: { en: 'REST APIs, system integration and databases', pt: 'APIs REST, integração de sistemas e bancos de dados' } },
+    { label: { en: 'practices', pt: 'práticas' }, value: { en: 'Integration tests, code review, Git, GitHub and Azure DevOps', pt: 'Testes de integração, code review, Git, GitHub e Azure DevOps' } },
   ] as { label: L; value: L }[],
 };
 
+/** The tools I use, grouped like the reference profile. `main` ones are drawn in the accent colour. */
+export const stack = {
+  num: '03',
+  title: { en: 'Stack', pt: 'Stack' } as L,
+  groups: [
+    { label: { en: 'Backend', pt: 'Backend' }, items: ['.NET', 'C#', 'VB.NET', 'Node.js', 'NestJS', 'Express', 'Fastify', 'Prisma'], main: ['.NET', 'Node.js'] },
+    { label: { en: 'Frontend', pt: 'Frontend' }, items: ['React', 'Next.js', 'Vue.js', 'TypeScript', 'JavaScript', 'Tailwind', 'Vite', 'HTML', 'CSS'], main: ['React'] },
+    { label: { en: 'Mobile', pt: 'Mobile' }, items: ['React Native', 'Expo', 'Android', 'iOS'] },
+    { label: { en: 'Data', pt: 'Dados' }, items: ['SQL Server', 'PostgreSQL', 'SQLite'] },
+    { label: { en: 'DevOps', pt: 'DevOps' }, items: ['Docker', 'Azure', 'Railway', 'GitHub Actions', 'Git', 'GitHub', 'Azure DevOps'] },
+    { label: { en: 'AI', pt: 'IA' }, items: ['Claude Code', 'Spec-Driven Development', 'OpenRouter', 'Ollama', { en: 'Automations', pt: 'Automações' }, 'Bots'] },
+    { label: { en: 'Design · Tools', pt: 'Design · Ferramentas' }, items: ['Figma', 'Visual Studio', 'VS Code'] },
+  ] as { label: L; items: (string | L)[]; main?: string[] }[],
+};
+
 export const experience = {
+  num: '02',
   title: { en: 'Experience', pt: 'Experiência' } as L,
   roles: [
     {
@@ -86,36 +105,79 @@ export const experience = {
   ] as { current?: boolean; period: L; role: L; company: string; detail?: L }[],
 };
 
-export const tiles = [
-  {
-    id: 'work',
-    href: profile.linkedin,
-    label: { en: 'work', pt: 'trabalho' },
-    title: { en: 'Klassmatt', pt: 'Klassmatt' },
-    sub: { en: 'Junior Full Stack Developer', pt: 'Desenvolvedor Full Stack Júnior' },
-  },
-  {
-    id: 'shipped',
-    href: 'https://www.linkedin.com/feed/update/urn:li:activity:7526636901034987520/',
-    label: { en: 'shipped', pt: 'entrega' },
-    title: { en: 'Whistleblowing channel', pt: 'Canal de Denúncias' },
-    sub: { en: 'LGPD · Azure · 2026', pt: 'LGPD · Azure · 2026' },
-  },
-  {
-    id: 'certified',
-    href: 'https://app.rocketseat.com.br/certificates/09da2ade-3667-41f8-933d-16cd36c43016',
-    label: { en: 'certified', pt: 'certificação' },
-    title: { en: 'C# specialization', pt: 'Especialização em C#' },
-    sub: { en: 'Rocketseat · 100 h · 2026', pt: 'Rocketseat · 100 h · 2026' },
-  },
-] as { id: string; href: string; label: L; title: L; sub: L }[];
+/** "What I'm building": work in progress, written by hand because it may live in private repositories. */
+export const building = {
+  num: '04',
+  title: { en: "What I'm building", pt: 'O que estou criando' } as L,
+  items: [
+    {
+      id: 'streamsync',
+      name: 'StreamSync',
+      year: '2026',
+      status: { en: 'launching soon', pt: 'lançamento em breve' } as L,
+      image: { dark: 'assets/projects/streamsync-dark.webp', light: 'assets/projects/streamsync-light.webp' },
+      text: {
+        en: 'Adds up Twitch, Kick and YouTube viewers in one configurable widget for OBS. Connected accounts, a widget editor with live preview, and plans paid with Pix or card.',
+        pt: 'Soma os espectadores de Twitch, Kick e YouTube em um só widget configurável para o OBS. Contas conectadas, editor de widgets com prévia ao vivo e planos pagos com Pix ou cartão.',
+      } as L,
+      stack: ['React', 'NestJS', 'Fastify', 'PostgreSQL', 'Prisma', 'Railway'],
+    },
+  ],
+};
 
+/**
+ * "What I've built": the pinned public repositories, read from GitHub every day.
+ * The entries below only add what GitHub does not have: a picture, a short text in both languages and the stack.
+ * A pinned repository without an entry still shows up, with its GitHub description and a drawn cover.
+ */
 export const projects = {
-  title: { en: 'Projects', pt: 'Projetos' } as L,
-  note: { en: 'pinned on GitHub, refreshed daily', pt: 'fixados no GitHub, atualizados todo dia' } as L,
+  num: '05',
+  title: { en: "What I've built", pt: 'O que já fiz' } as L,
+  note: { en: 'pinned on GitHub', pt: 'fixados no GitHub' } as L,
+  details: {
+    Food_Explorer_ReactJS: {
+      title: 'Food Explorer',
+      image: 'assets/projects/food-explorer.webp',
+      text: { en: 'Restaurant menu with cart, favourites, checkout and order tracking.', pt: 'Cardápio de restaurante com carrinho, favoritos, checkout e pedidos.' },
+      stack: ['React', 'Vite', 'Styled Components'],
+    },
+    Food_Explorer_NodeJS_API: {
+      title: 'Food Explorer API',
+      logo: 'assets/projects/food-explorer-logo.svg',
+      endpoints: ['POST /sessions', 'GET /dish/:id', 'POST /favorite/:dish_id', 'POST /search_cep', 'POST /checkout', 'PATCH /checkout'],
+      text: { en: 'API for dishes, orders, favourites and postcode lookup, with JWT sessions.', pt: 'API de pratos, pedidos, favoritos e consulta de CEP, com sessões JWT.' },
+      stack: ['Node.js', 'Express', 'Knex', 'SQLite'],
+    },
+    Explorer_Stage_09_ReactJS_RocketNotes: {
+      title: 'RocketNotes',
+      image: 'assets/projects/rocketnotes.webp',
+      text: { en: 'Notes app with tags, links and a profile page, on top of the RocketNotes API.', pt: 'App de notas com tags, links e perfil, sobre a API do RocketNotes.' },
+      stack: ['React', 'Vite', 'Styled Components'],
+    },
+    Explorer_Stage_08_NodeJS_RocketNotes_API: {
+      title: 'RocketNotes API',
+      logo: 'assets/projects/rocketnotes-logo.svg',
+      endpoints: ['POST /users', 'POST /sessions', 'PATCH /users/avatar', 'GET /notes', 'DELETE /notes/:id', 'GET /tags'],
+      text: { en: 'Users, JWT sessions, notes, tags and avatar upload.', pt: 'Usuários, sessões JWT, notas, tags e upload de avatar.' },
+      stack: ['Node.js', 'Express', 'Knex', 'SQLite'],
+    },
+    ShortsSumary: {
+      title: 'Shorts Summary',
+      image: 'assets/projects/shorts-summary.webp',
+      text: { en: 'Summarises YouTube Shorts by transcribing the audio with AI.', pt: 'Resume Shorts do YouTube transcrevendo o áudio com IA.' },
+      stack: ['Node.js', 'Transformers.js', 'FFmpeg'],
+    },
+    Habit: {
+      title: 'Habits',
+      image: 'assets/projects/habit.webp',
+      text: { en: 'Habit tracker for web and mobile, built at NLW Setup.', pt: 'Controle de hábitos na web e no celular, feito na NLW Setup.' },
+      stack: ['React', 'React Native', 'Fastify'],
+    },
+  } as Record<string, { title: string; image?: string; logo?: string; endpoints?: string[]; text: L; stack: string[] }>,
 };
 
 export const posts = {
+  num: '06',
   title: { en: 'Featured posts', pt: 'Publicações em destaque' } as L,
   note: { en: 'from LinkedIn', pt: 'do LinkedIn' } as L,
   kinds: {
@@ -200,6 +262,7 @@ export const activity = {
   perMonth: { en: 'contributions per month', pt: 'contribuições por mês' } as L,
   languagesTitle: { en: 'Languages', pt: 'Linguagens' } as L,
   languagesNote: { en: 'by code in public repositories', pt: 'por código nos repositórios públicos' } as L,
+  languagesNoteAll: { en: 'by code in public and private repositories', pt: 'por código nos repositórios públicos e privados' } as L,
   months: {
     en: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
     pt: ['jan', 'fev', 'mar', 'abr', 'mai', 'jun', 'jul', 'ago', 'set', 'out', 'nov', 'dez'],
@@ -209,11 +272,10 @@ export const activity = {
 export const contact = {
   title: { en: "Let's talk", pt: 'Vamos conversar' } as L,
   text: {
-    en: 'Have an integration or a web application to build? Write to me.',
-    pt: 'Tem uma integração ou uma aplicação web para construir? Me escreva.',
+    en: 'Have an integration or a web or mobile app to build? Write to me.',
+    pt: 'Tem uma integração ou um app web ou mobile para construir? Me escreva.',
   } as L,
   links: [
-    { id: 'email', href: `mailto:${profile.email}`, title: { en: 'Email', pt: 'E-mail' }, sub: profile.email },
     { id: 'linkedin', href: profile.linkedin, title: { en: 'LinkedIn', pt: 'LinkedIn' }, sub: profile.linkedinHandle },
     { id: 'github', href: profile.github, title: { en: 'GitHub', pt: 'GitHub' }, sub: 'github.com/B3RG5TRON' },
   ] as { id: string; href: string; title: L; sub: string }[],
@@ -231,6 +293,7 @@ export const alt = {
   heatmap: { en: 'GitHub contributions in the last 12 months', pt: 'Contribuições no GitHub nos últimos 12 meses' } as L,
   activity: { en: 'Current streak, active days and contributions per month', pt: 'Sequência atual, dias ativos e contribuições por mês' } as L,
   languages: { en: 'Languages used in public repositories', pt: 'Linguagens usadas nos repositórios públicos' } as L,
+  languagesAll: { en: 'Languages used in public and private repositories', pt: 'Linguagens usadas nos repositórios públicos e privados' } as L,
 };
 
 export function formatDate(iso: string, lang: Lang): string {

@@ -1,24 +1,30 @@
 /**
- * Reads the public profile data the cards need and writes data/github.json.
- * Needs a token because pinned repositories and the contribution calendar
- * only exist in the GraphQL API. In GitHub Actions the built-in GITHUB_TOKEN is enough.
+ * Reads the profile data the cards need and writes data/github.json.
+ * Pinned repositories and the contribution calendar only exist in the GraphQL API, so it needs a token.
+ *
+ * PROFILE_TOKEN (optional): a token of the profile owner that can read their private repositories.
+ * With it, the repository count, the languages and the contributions also cover private work.
+ * Only totals are saved: no private repository name, description or file ever reaches the cards.
+ * Without it, or if it stops working, the built-in GITHUB_TOKEN is used and only public data is read.
  */
 import { mkdirSync, writeFileSync } from 'node:fs';
 import { profile } from '../src/content.ts';
 import type { GithubData } from '../src/data.ts';
 
-const token = process.env.GITHUB_TOKEN ?? process.env.GH_TOKEN;
-if (!token) {
-  console.error('GITHUB_TOKEN is not set. Export a token (no scopes needed for public data) and run again.');
+const personal = process.env.PROFILE_TOKEN || undefined;
+const fallback = process.env.GITHUB_TOKEN || process.env.GH_TOKEN || undefined;
+if (!personal && !fallback) {
+  console.error('Set GITHUB_TOKEN (public data) or PROFILE_TOKEN (public and private data) and run again.');
   process.exit(1);
 }
 
 const query = /* GraphQL */ `
-  query ($login: String!) {
+  query ($login: String!, $privacy: RepositoryPrivacy) {
     user(login: $login) {
       login
       followers { totalCount }
       publicRepos: repositories(privacy: PUBLIC, ownerAffiliations: OWNER) { totalCount }
+      privateRepos: repositories(privacy: PRIVATE, ownerAffiliations: OWNER) { totalCount }
       pinnedItems(first: 6, types: REPOSITORY) {
         nodes {
           ... on Repository {
@@ -34,25 +40,39 @@ const query = /* GraphQL */ `
           weeks { contributionDays { date contributionCount } }
         }
       }
-      code: repositories(first: 100, privacy: PUBLIC, ownerAffiliations: OWNER, isFork: false) {
+      code: repositories(first: 100, privacy: $privacy, ownerAffiliations: OWNER, isFork: false) {
         nodes { languages(first: 12, orderBy: { field: SIZE, direction: DESC }) { edges { size node { name color } } } }
       }
     }
   }
 `;
 
-const res = await fetch('https://api.github.com/graphql', {
-  method: 'POST',
-  headers: { authorization: `Bearer ${token}`, 'content-type': 'application/json', 'user-agent': 'profile-cards' },
-  body: JSON.stringify({ query, variables: { login: profile.login } }),
-});
-const json = (await res.json()) as { data?: { user: any }; errors?: { message: string }[] };
-if (!res.ok || json.errors?.length || !json.data?.user) {
-  console.error(`GitHub API request failed (${res.status}):`, json.errors?.map((e) => e.message).join('; ') ?? 'no user returned');
-  process.exit(1);
+async function read(token: string, includePrivate: boolean) {
+  const res = await fetch('https://api.github.com/graphql', {
+    method: 'POST',
+    headers: { authorization: `Bearer ${token}`, 'content-type': 'application/json', 'user-agent': 'profile-cards' },
+    // privacy null = every repository the token can see; PUBLIC keeps a broad token from adding private code.
+    body: JSON.stringify({ query, variables: { login: profile.login, privacy: includePrivate ? null : 'PUBLIC' } }),
+  });
+  const json = (await res.json().catch(() => ({}))) as { data?: { user: any }; errors?: { message: string }[] };
+  if (!res.ok || json.errors?.length || !json.data?.user) {
+    throw new Error(`GitHub API request failed (${res.status}): ${json.errors?.map((e) => e.message).join('; ') ?? 'no user returned'}`);
+  }
+  return json.data.user;
 }
 
-const u = json.data.user;
+let u: any;
+let includesPrivate = false;
+try {
+  if (!personal) throw new Error('PROFILE_TOKEN is not set');
+  u = await read(personal, true);
+  includesPrivate = true;
+} catch (error) {
+  if (personal) console.warn(`PROFILE_TOKEN did not work, reading public data only. ${(error as Error).message}`);
+  if (!fallback) process.exit(1);
+  u = await read(fallback, false);
+}
+
 const bytes = new Map<string, { name: string; color: string | null; bytes: number }>();
 for (const repo of u.code.nodes) {
   for (const edge of repo.languages.edges) {
@@ -64,7 +84,12 @@ for (const repo of u.code.nodes) {
 
 const data: GithubData = {
   fetchedAt: new Date().toISOString(),
-  user: { login: u.login, publicRepos: u.publicRepos.totalCount, followers: u.followers.totalCount },
+  user: {
+    login: u.login,
+    publicRepos: u.publicRepos.totalCount,
+    privateRepos: includesPrivate ? u.privateRepos.totalCount : null,
+    followers: u.followers.totalCount,
+  },
   pinned: u.pinnedItems.nodes
     .filter((r: any) => r && r.name && !r.isPrivate)
     .map((r: any) => ({
@@ -85,8 +110,9 @@ const data: GithubData = {
     ),
   },
   languages: [...bytes.values()].sort((a, b) => b.bytes - a.bytes),
+  includesPrivate,
 };
 
 mkdirSync(new URL('../data/', import.meta.url), { recursive: true });
 writeFileSync(new URL('../data/github.json', import.meta.url), `${JSON.stringify(data, null, 2)}\n`);
-console.log(`Saved ${data.pinned.length} pinned repositories and ${data.contributions?.total} contributions.`);
+console.log(`Saved ${data.pinned.length} pinned repositories and ${data.contributions?.total} contributions (${includesPrivate ? 'public and private' : 'public only'}).`);
