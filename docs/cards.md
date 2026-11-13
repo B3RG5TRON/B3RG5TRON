@@ -11,7 +11,7 @@ The README is a set of SVG cards drawn by a script, because GitHub does not run 
 | Layout of one card | `src/cards/` |
 | Order of the cards in the README | `layout()` in `src/render.ts` |
 | Which GitHub data cards appear | `show` in `src/content.ts` |
-| Screens of the whistleblowing channel | `assets/canal-denuncias/` (800 x 600 WebP) |
+| Screens of the whistleblowing channel, shown inside the featured post (one post is drawn full width with its screens; two or more go two per row without them) | `screens` in `src/content.ts`, images in `assets/canal-denuncias/` (800 x 600 WebP) |
 
 Pinned repositories, contributions and languages come from the GitHub API and are saved in `data/github.json`.
 

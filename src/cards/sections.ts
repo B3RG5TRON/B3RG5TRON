@@ -1,7 +1,7 @@
 import { Card, n, type Span } from '../svg.ts';
 import { balance, clamp, measure, wrap } from '../fonts.ts';
 import { PAD, W, tokens, type ThemeName } from '../tokens.ts';
-import { about, building, certificates, contact, experience, footer, formatDate, posts, profile, projects, stack, switcher, type Lang } from '../content.ts';
+import { about, building, certificates, contact, experience, footer, formatDate, posts, profile, projects, screens, stack, switcher, type Lang } from '../content.ts';
 import type { GithubData, Repo } from '../data.ts';
 import { readFileSync } from 'node:fs';
 
@@ -309,23 +309,35 @@ export function certificateCard(lang: Lang, theme: ThemeName, id: string): Card 
   return card;
 }
 
-/** One screenshot in a card frame. The image is inlined so the SVG works through <img>. */
-export function screenCard(lang: Lang, theme: ThemeName, file: string, caption: string): Card {
-  const pad = 14;
-  const iw = THIRD - 2 * pad;
+/** The featured post, full width: kind, date, title and text, then the screens of the project in a row. */
+export function featuredPostCard(lang: Lang, theme: ThemeName, id: string): Card {
+  const post = posts.items.find((p) => p.id === id)!;
+  const x = 32;
+  const inner = W - 2 * x;
+  const title = clamp(post.title[lang], inner, 'sans600', 21, 1);
+  const text = balance(post.text[lang], inner, 'sans400', 14.5);
+  const pad = 16;
+  const gap = 12;
+  const iw = (W - 2 * pad - 2 * gap) / 3;
   const ih = Math.round((iw * 3) / 4);
-  const H = pad + ih + 42;
-  const card = new Card(THIRD, H, theme, caption);
+  const iy = 96 + text.length * 22.5 + 22;
+  const H = iy + ih + 44;
+  const caption = screens.items.map((s) => s.caption[lang]).join(', ');
+  const card = new Card(W, H, theme, `${post.date[lang]}, ${post.title[lang]}. ${post.text[lang]} ${caption}`);
   const t = card.t;
   card.frame();
-  const b64 = readFileSync(new URL(`../../${file}`, import.meta.url)).toString('base64');
-  const id = card.uid('img');
-  card.def(id, `<clipPath id="${id}"><rect x="${pad}" y="${pad}" width="${iw}" height="${ih}" rx="7"/></clipPath>`);
-  card.add(
-    `<image x="${pad}" y="${pad}" width="${iw}" height="${ih}" clip-path="url(#${id})" preserveAspectRatio="xMidYMid slice" href="data:image/webp;base64,${b64}"/>`,
-    `<rect x="${pad + 0.5}" y="${pad + 0.5}" width="${iw - 1}" height="${ih - 1}" rx="6.5" fill="none" stroke="${t.border}"/>`,
-  );
-  card.put(pad + 4, pad + ih + 25, caption, { size: 11.5, mono: true, fill: t.text2 });
+  const kind = posts.kinds[post.kind][lang];
+  const kw = Math.ceil(measure(kind, 'mono400', 11)) + 22;
+  card.add(`<rect x="${x + 0.5}" y="26.5" width="${kw}" height="23" rx="11.5" fill="none" stroke="${t.accent}"/>`);
+  card.put(x + 11.5, 42.5, kind, { size: 11, mono: true, fill: t.accent });
+  card.put(W - x, 42.5, post.date[lang], { size: 11.5, mono: true, fill: t.text3, anchor: 'end' });
+  card.put(x, 84, title[0], { size: 21, weight: 600, tracking: -0.3 });
+  card.lines(x, 112, text, 22.5, { size: 14.5, fill: t.text2 });
+  screens.items.forEach((s, i) => {
+    const sx = pad + i * (iw + gap);
+    card.image(s.file, sx, iy, iw, ih, 8);
+    card.put(sx + 4, iy + ih + 24, s.caption[lang], { size: 11.5, mono: true, fill: t.text2 });
+  });
   return card;
 }
 

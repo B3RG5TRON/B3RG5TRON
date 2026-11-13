@@ -11,7 +11,7 @@ import { loadData, type GithubData } from './data.ts';
 import { hero } from './cards/hero.ts';
 import {
   aboutCard, buildingCard, buildingTitle, certificateCard, certificatesTitle, contactCard, experienceCard, footerCard, langPill, linkCard, postCard,
-  postsTitle, projectsTitle, repoCard, stackCard,
+  featuredPostCard, postsTitle, projectsTitle, repoCard, stackCard,
 } from './cards/sections.ts';
 import { activityCard, heatmapCard, languagesCard } from './cards/stats.ts';
 
@@ -55,15 +55,19 @@ export function layout(data: GithubData): Row[] {
     });
   }
   rows.push(full('title-posts', (l, t) => postsTitle(l, t)));
-  for (let i = 0; i < posts.items.length; i += 2) {
-    rows.push({
-      items: posts.items.slice(i, i + 2).map((post) => ({
-        name: `post-${post.id}`,
-        width: '50%',
-        href: post.href,
-        build: (l: Lang, t: ThemeName) => postCard(l, t, post.id),
-      })),
-    });
+  if (posts.items.length === 1) {
+    rows.push(full(`post-${posts.items[0].id}`, (l, t) => featuredPostCard(l, t, posts.items[0].id), posts.items[0].href));
+  } else {
+    for (let i = 0; i < posts.items.length; i += 2) {
+      rows.push({
+        items: posts.items.slice(i, i + 2).map((post) => ({
+          name: `post-${post.id}`,
+          width: '50%',
+          href: post.href,
+          build: (l: Lang, t: ThemeName) => postCard(l, t, post.id),
+        })),
+      });
+    }
   }
   const certs = certificates.items.filter((c) => existsSync(new URL(`../${c.file}`, import.meta.url)));
   if (certs.length) rows.push(full('title-certificates', (l, t) => certificatesTitle(l, t)));

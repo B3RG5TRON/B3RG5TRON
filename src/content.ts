@@ -183,7 +183,7 @@ export const projects = {
 
 export const posts = {
   num: '06',
-  title: { en: 'Featured posts', pt: 'Publicações em destaque' } as L,
+  title: { en: 'Featured post', pt: 'Publicação em destaque' } as L,
   note: { en: 'from LinkedIn', pt: 'do LinkedIn' } as L,
   kinds: {
     project: { en: 'project', pt: 'projeto' },
@@ -199,39 +199,6 @@ export const posts = {
       text: {
         en: 'Built end to end: UX, business rules, security, architecture, tests and Azure deploy, with LGPD and anonymity at the core.',
         pt: 'Feito de ponta a ponta: UX, regras, segurança, arquitetura, testes e deploy no Azure, com LGPD e anonimato no centro.',
-      },
-    },
-    {
-      id: 'csharp',
-      kind: 'certificate',
-      href: 'https://www.linkedin.com/feed/update/urn:li:activity:7442300005383716864/',
-      date: { en: '24 Mar 2026', pt: '24 mar 2026' },
-      title: { en: 'C# specialization at Rocketseat, 100 hours', pt: 'Especialização em C# pela Rocketseat, 100 horas' },
-      text: {
-        en: '.NET APIs, Domain-Driven Design, Entity Framework, JWT, SOLID, unit and integration tests, and Azure deploy.',
-        pt: 'APIs em .NET, Domain-Driven Design, Entity Framework, JWT, SOLID, testes de unidade e integração e deploy no Azure.',
-      },
-    },
-    {
-      id: 'deploy',
-      kind: 'certificate',
-      href: 'https://www.linkedin.com/feed/update/urn:li:activity:7300640469066117120/',
-      date: { en: '26 Feb 2025', pt: '26 fev 2025' },
-      title: { en: 'Deploy certification at Rocketseat', pt: 'Certificação em Deploy pela Rocketseat' },
-      text: {
-        en: 'PM2, Render, Netlify, environment variables and automated tests with Jest.',
-        pt: 'PM2, Render, Netlify, variáveis de ambiente e testes automatizados com Jest.',
-      },
-    },
-    {
-      id: 'integration',
-      kind: 'certificate',
-      href: 'https://www.linkedin.com/feed/update/urn:li:activity:7270368952705327104/',
-      date: { en: '5 Dec 2024', pt: '5 dez 2024' },
-      title: { en: 'Back-end and front-end integration at Rocketseat', pt: 'Integração de back-end com front-end pela Rocketseat' },
-      text: {
-        en: 'Back-end authentication, image upload and a Node.js API consumed by a React front end.',
-        pt: 'Autenticação no back-end, upload de imagens e API em Node.js consumida por um front-end em React.',
       },
     },
   ] as { id: string; kind: string; href: string; date: L; title: L; text: L }[],
@@ -333,7 +300,7 @@ export const certificates = {
   ] as { id: string; file: string; href: string; title: L; issuer: string; kind: string; date: L; hours?: number }[],
 };
 
-/** Screens of the whistleblowing channel, shown with the company's permission. */
+/** Screens of the whistleblowing channel, shown inside its featured post with the company's permission. */
 export const screens = {
   href: 'https://www.linkedin.com/feed/update/urn:li:activity:7526636901034987520/',
   items: [
