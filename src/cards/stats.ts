@@ -144,6 +144,19 @@ export function activityCard(lang: Lang, theme: ThemeName, data: GithubData): Ca
   return card;
 }
 
+/**
+ * GitHub's language colours are picked for white pages; a few (PowerShell's navy) vanish on black.
+ * Lighten a colour towards white until it reads on the dark theme, keeping its hue.
+ */
+function visible(hex: string, theme: ThemeName): string {
+  if (theme !== 'dark' || !/^#[0-9a-f]{6}$/i.test(hex)) return hex;
+  const rgb = [1, 3, 5].map((i) => parseInt(hex.slice(i, i + 2), 16));
+  const lum = (c: number[]) => c.map((v) => v / 255).map((v) => (v <= 0.03928 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4)).reduce((s, v, i) => s + v * [0.2126, 0.7152, 0.0722][i], 0);
+  let c = rgb;
+  for (let k = 0; k < 10 && lum(c) < 0.08; k++) c = c.map((v) => Math.round(v + (255 - v) * 0.15));
+  return '#' + c.map((v) => v.toString(16).padStart(2, '0')).join('');
+}
+
 export function languagesCard(lang: Lang, theme: ThemeName, data: GithubData): Card | null {
   const list = data.languages;
   if (!list || !list.length) return null;
@@ -152,7 +165,7 @@ export function languagesCard(lang: Lang, theme: ThemeName, data: GithubData): C
   const top = sorted.slice(0, 7);
   const rest = sorted.slice(7).reduce((s, l) => s + l.bytes, 0);
   const items = [
-    ...top.map((l) => ({ name: l.name, color: l.color ?? tokens.language[l.name] ?? tokens.language.Other, share: l.bytes / total })),
+    ...top.map((l) => ({ name: l.name, color: visible(l.color ?? tokens.language[l.name] ?? tokens.language.Other, theme), share: l.bytes / total })),
     ...(rest > 0 ? [{ name: lang === 'en' ? 'Other' : 'Outras', color: tokens.language.Other, share: rest / total }] : []),
   ];
   const pct = (s: number) => `${(s * 100).toFixed(1)}%`;
