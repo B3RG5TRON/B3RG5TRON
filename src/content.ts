@@ -52,9 +52,16 @@ export const about = {
   } as L,
   /** Short label and value lines under the paragraph, drawn with an arrow like the reference profile. */
   facts: [
-    { label: { en: 'studying', pt: 'estudando' }, value: { en: 'Swift and Rust', pt: 'Swift e Rust' } },
+    { label: { en: 'studying', pt: 'estudando' }, value: { en: 'Swift, Rust, blockchain and Open Finance', pt: 'Swift, Rust, blockchain e Open Finance' } },
     { label: { en: 'focus', pt: 'foco' }, value: { en: 'REST APIs, system integration and databases', pt: 'APIs REST, integração de sistemas e bancos de dados' } },
     { label: { en: 'practices', pt: 'práticas' }, value: { en: 'Integration tests, code review, Git, GitHub and Azure DevOps', pt: 'Testes de integração, code review, Git, GitHub e Azure DevOps' } },
+    {
+      label: { en: 'beyond code', pt: 'além do código' },
+      value: {
+        en: 'Documentation and requirements specification, clear communication with technical and business teams, creativity, problem solving and ownership from idea to production',
+        pt: 'Documentação e especificação de requisitos, comunicação clara com áreas técnicas e de negócio, criatividade, resolução de problemas e autonomia da ideia à produção',
+      },
+    },
   ] as { label: L; value: L }[],
 };
 
@@ -65,7 +72,7 @@ export const stack = {
   groups: [
     { label: { en: 'Backend', pt: 'Backend' }, items: ['.NET', 'C#', 'VB.NET', 'Node.js', 'NestJS', 'Express', 'Fastify', 'Prisma'], main: ['.NET', 'Node.js'] },
     { label: { en: 'Frontend', pt: 'Frontend' }, items: ['React', 'Next.js', 'Vue.js', 'TypeScript', 'JavaScript', 'Tailwind', 'Vite', 'HTML', 'CSS'], main: ['React'] },
-    { label: { en: 'Mobile', pt: 'Mobile' }, items: ['React Native', 'Expo', 'Android', 'iOS'] },
+    { label: { en: 'Mobile', pt: 'Mobile' }, items: ['React Native', 'Expo', 'Swift', 'Rust', 'Android', 'iOS'] },
     { label: { en: 'Data', pt: 'Dados' }, items: ['SQL Server', 'PostgreSQL', 'SQLite'] },
     { label: { en: 'DevOps', pt: 'DevOps' }, items: ['Docker', 'Azure', 'Railway', 'GitHub Actions', 'Git', 'GitHub', 'Azure DevOps'] },
     { label: { en: 'AI', pt: 'IA' }, items: ['Claude Code', 'Spec-Driven Development', 'OpenRouter', 'Ollama', { en: 'Automations', pt: 'Automações' }, 'Bots'] },

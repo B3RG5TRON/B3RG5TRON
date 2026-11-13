@@ -20,24 +20,27 @@ function headingSpans(card: Card, num: string, title: string): Span[] {
 export function aboutCard(lang: Lang, theme: ThemeName): Card {
   const width = W - 2 * PAD;
   const para = wrap(about.text[lang], width, 'sans400', 17);
-  const rowH = 44;
+  const valueX = PAD + 176;
+  const facts = about.facts.map((f) => ({ label: f.label[lang], lines: balance(f.value[lang], width - (valueX - PAD), 'sans400', 15) }));
+  const rowH = (lines: number) => 44 + (lines - 1) * 22;
   const top = 104;
   const rowsY = top + para.length * 28 + 6;
-  const H = rowsY + about.facts.length * rowH + 30;
-  const facts = about.facts.map((f) => `${f.label[lang]}: ${f.value[lang]}`).join('; ');
-  const card = new Card(W, H, theme, `${about.title[lang]}: ${about.text[lang]} ${facts}`);
+  const rowsH = facts.reduce((h, f) => h + rowH(f.lines.length), 0);
+  const H = rowsY + rowsH + 30;
+  const label = about.facts.map((f) => `${f.label[lang]}: ${f.value[lang]}`).join('; ');
+  const card = new Card(W, H, theme, `${about.title[lang]}: ${about.text[lang]} ${label}`);
   const t = card.t;
   card.frame();
   card.put(PAD, 62, headingSpans(card, about.num, about.title[lang]), { size: 21, tracking: -0.3 });
   card.lines(PAD, top, para, 28, { size: 17, fill: t.text2 });
-  const valueX = PAD + 176;
-  about.facts.forEach((f, i) => {
-    const y = rowsY + i * rowH;
+  let y = rowsY;
+  for (const f of facts) {
     card.add(`<rect x="${PAD}" y="${y}" width="${width}" height="1" fill="${t.hairline}"/>`);
-    card.put(PAD, y + 27, `→ ${f.label[lang]}`, { size: 12.5, mono: true, fill: t.accent });
-    card.put(valueX, y + 27.5, clamp(f.value[lang], width - (valueX - PAD), 'sans400', 15, 1)[0], { size: 15, fill: t.text });
-  });
-  card.add(`<rect x="${PAD}" y="${rowsY + about.facts.length * rowH}" width="${width}" height="1" fill="${t.hairline}"/>`);
+    card.put(PAD, y + 27, `→ ${f.label}`, { size: 12.5, mono: true, fill: t.accent });
+    card.lines(valueX, y + 27.5, f.lines, 22, { size: 15, fill: t.text });
+    y += rowH(f.lines.length);
+  }
+  card.add(`<rect x="${PAD}" y="${y}" width="${width}" height="1" fill="${t.hairline}"/>`);
   return card;
 }
 
