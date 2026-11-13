@@ -180,6 +180,12 @@ export const screens = {
   ] as { id: string; file: string; caption: L }[],
 };
 
+/**
+ * Which GitHub data cards the README shows. The numbers count public activity only,
+ * so a card that undersells the work can be switched off here without touching the layout.
+ */
+export const show = { heatmap: true, activity: false, languages: true };
+
 export const activity = {
   heatmapTitle: { en: 'Contributions', pt: 'Contribuições' } as L,
   heatmapNote: { en: 'in the last 12 months', pt: 'nos últimos 12 meses' } as L,
