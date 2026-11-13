@@ -1,12 +1,103 @@
 {
-  "fetchedAt": "2026-11-13T21:12:22.658Z",
+  "fetchedAt": "2026-11-13T21:22:00.893Z",
   "user": {
     "login": "B3RG5TRON",
     "publicRepos": 17,
     "privateRepos": 8,
     "followers": 15
   },
-  "pinned": [],
+  "pinned": [
+    {
+      "name": "Habit",
+      "description": "Esse projeto foi feito durante a NLW Setup da Rocketseat na trilha Ignite, em sua 11° edição, onde desenvolvemos um website que faz o controle de hábitos.",
+      "url": "https://github.com/B3RG5TRON/Habit",
+      "homepage": null,
+      "language": {
+        "name": "TypeScript",
+        "color": "#3178c6"
+      },
+      "stars": 0,
+      "forks": 0,
+      "topics": [],
+      "pushedAt": "2026-11-13T20:34:15Z",
+      "lastCommitAt": "2023-11-06T18:46:09Z"
+    },
+    {
+      "name": "Food_Explorer_ReactJS",
+      "description": null,
+      "url": "https://github.com/B3RG5TRON/Food_Explorer_ReactJS",
+      "homepage": null,
+      "language": {
+        "name": "JavaScript",
+        "color": "#f1e05a"
+      },
+      "stars": 0,
+      "forks": 0,
+      "topics": [],
+      "pushedAt": "2026-11-13T20:34:03Z",
+      "lastCommitAt": "2025-05-24T22:24:48Z"
+    },
+    {
+      "name": "Food_Explorer_NodeJS_API",
+      "description": null,
+      "url": "https://github.com/B3RG5TRON/Food_Explorer_NodeJS_API",
+      "homepage": null,
+      "language": {
+        "name": "JavaScript",
+        "color": "#f1e05a"
+      },
+      "stars": 0,
+      "forks": 0,
+      "topics": [],
+      "pushedAt": "2026-11-13T20:33:56Z",
+      "lastCommitAt": "2025-05-24T20:53:18Z"
+    },
+    {
+      "name": "ShortsSumary",
+      "description": "Shorts Summary é uma aplicação web para criar resumo de vídeos shorts do Youtube utilizando Inteligência Artificial para transcrever o conteúdo do vídeo e realizar o resumo do conteúdo.",
+      "url": "https://github.com/B3RG5TRON/ShortsSumary",
+      "homepage": null,
+      "language": {
+        "name": "JavaScript",
+        "color": "#f1e05a"
+      },
+      "stars": 0,
+      "forks": 0,
+      "topics": [],
+      "pushedAt": "2026-11-13T20:33:47Z",
+      "lastCommitAt": "2023-09-15T01:52:07Z"
+    },
+    {
+      "name": "Explorer_Stage_09_ReactJS_RocketNotes",
+      "description": "Este repositório se trata do front-end da aplicação RocketNotes. Esta aplicação disponibiliza aos usuários a possibilidade de realizar um cadastrar e gerar anotações sobre assuntos que desejar.",
+      "url": "https://github.com/B3RG5TRON/Explorer_Stage_09_ReactJS_RocketNotes",
+      "homepage": null,
+      "language": {
+        "name": "JavaScript",
+        "color": "#f1e05a"
+      },
+      "stars": 0,
+      "forks": 0,
+      "topics": [],
+      "pushedAt": "2026-11-13T20:33:44Z",
+      "lastCommitAt": "2025-03-26T16:50:59Z"
+    },
+    {
+      "name": "IgniteFeed",
+      "description": "Design of a social network.",
+      "url": "https://github.com/B3RG5TRON/IgniteFeed",
+      "homepage": null,
+      "language": {
+        "name": "TypeScript",
+        "color": "#3178c6"
+      },
+      "stars": 0,
+      "forks": 0,
+      "topics": [],
+      "pushedAt": "2023-01-17T05:32:37Z",
+      "lastCommitAt": "2023-01-17T05:32:29Z"
+    }
+  ],
   "contributions": {
     "total": 107,
     "days": [
