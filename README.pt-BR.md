@@ -14,7 +14,7 @@
 
 <picture><source media="(prefers-color-scheme: dark)" srcset="./cards/dark/pt/stack.svg"/><img width="100%" alt="Stack. Backend: .NET, C#, VB.NET, Node.js, NestJS, Express, Fastify, Prisma; Frontend: React, Next.js, Vue.js, TypeScript, JavaScript, Tailwind, Vite, HTML, CSS; Mobile: React Native, Expo, Swift, Rust, Android, iOS; Dados: SQL Server, PostgreSQL, SQLite; DevOps: Docker, Azure, Railway, GitHub Actions, Git, GitHub, Azure DevOps; IA: Claude Code, Spec-Driven Development, OpenRouter, Ollama, Automações, Bots; Design · Ferramentas: Figma, Visual Studio, VS Code" src="./cards/light/pt/stack.svg"/></picture>
 
-<a href="https://github.com/B3RG5TRON"><picture><source media="(prefers-color-scheme: dark)" srcset="./cards/dark/pt/heatmap.svg"/><img width="100%" alt="Contribuições no GitHub nos últimos 12 meses: 110" src="./cards/light/pt/heatmap.svg"/></picture></a>
+<a href="https://github.com/B3RG5TRON"><picture><source media="(prefers-color-scheme: dark)" srcset="./cards/dark/pt/heatmap.svg"/><img width="100%" alt="Contribuições no GitHub nos últimos 12 meses: 111" src="./cards/light/pt/heatmap.svg"/></picture></a>
 
 <picture><source media="(prefers-color-scheme: dark)" srcset="./cards/dark/pt/languages.svg"/><img width="100%" alt="Linguagens usadas nos repositórios públicos e privados: TypeScript 71.0%, C# 15.2%, JavaScript 8.9%, CSS 2.8%, PowerShell 1.6%, HTML 0.2%, TSQL 0.1%, Outras 0.1%" src="./cards/light/pt/languages.svg"/></picture>
 
