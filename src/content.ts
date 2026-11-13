@@ -346,7 +346,10 @@ export const contact = {
   links: [
     { id: 'linkedin', href: profile.linkedin, title: { en: 'LinkedIn', pt: 'LinkedIn' }, sub: profile.linkedinHandle },
     { id: 'github', href: profile.github, title: { en: 'GitHub', pt: 'GitHub' }, sub: 'github.com/B3RG5TRON' },
-  ] as { id: string; href: string; title: L; sub: string }[],
+    // The portfolio site (step 2 of the plan). Set live to true once GitHub Pages serves it.
+    { id: 'site', href: 'https://b3rg5tron.github.io/', title: { en: 'Portfolio', pt: 'Portfólio' }, sub: 'b3rg5tron.github.io', live: false },
+  ] as { id: string; href: string; title: L; sub: string; live?: boolean }[],
+  soon: { en: 'soon', pt: 'em breve' } as L,
 };
 
 export const footer = {

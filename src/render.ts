@@ -83,7 +83,7 @@ export function layout(data: GithubData): Row[] {
   }
   rows.push(
     full('contact', (l, t) => contactCard(l, t), `mailto:${profile.email}`),
-    { items: contact.links.map((link) => ({ name: `link-${link.id}`, width: `${Math.round(10000 / contact.links.length) / 100}%`, href: link.href, build: (l: Lang, t: ThemeName) => linkCard(l, t, link.id) })) },
+    { items: contact.links.map((link) => ({ name: `link-${link.id}`, width: `${Math.round(10000 / contact.links.length) / 100}%`, href: link.live === false ? undefined : link.href, build: (l: Lang, t: ThemeName) => linkCard(l, t, link.id) })) },
     full('footer', (l, t) => footerCard(l, t, data)),
   );
   return rows;
