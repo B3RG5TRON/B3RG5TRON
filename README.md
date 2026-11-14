@@ -14,9 +14,9 @@
 
 <picture><source media="(prefers-color-scheme: dark)" srcset="./cards/dark/en/stack.svg"/><img width="100%" alt="Stack. Backend: .NET, C#, VB.NET, Node.js, NestJS, Express, Fastify, Prisma; Frontend: React, Next.js, Vue.js, TypeScript, JavaScript, Tailwind, Vite, HTML, CSS; Mobile: React Native, Expo, Swift, Rust, Android, iOS; Data: SQL Server, PostgreSQL, SQLite; DevOps: Docker, Azure, Railway, GitHub Actions, Git, GitHub, Azure DevOps; AI: Claude Code, Spec-Driven Development, OpenRouter, Ollama, Automations, Bots; Design · Tools: Figma, Visual Studio, VS Code" src="./cards/light/en/stack.svg"/></picture>
 
-<a href="https://github.com/B3RG5TRON"><picture><source media="(prefers-color-scheme: dark)" srcset="./cards/dark/en/heatmap.svg"/><img width="100%" alt="GitHub contributions in the last 12 months: 113" src="./cards/light/en/heatmap.svg"/></picture></a>
+<a href="https://github.com/B3RG5TRON"><picture><source media="(prefers-color-scheme: dark)" srcset="./cards/dark/en/heatmap.svg"/><img width="100%" alt="GitHub contributions in the last 12 months: 119" src="./cards/light/en/heatmap.svg"/></picture></a>
 
-<picture><source media="(prefers-color-scheme: dark)" srcset="./cards/dark/en/languages.svg"/><img width="100%" alt="Languages used in public and private repositories: TypeScript 71.0%, C# 15.2%, JavaScript 8.9%, CSS 2.8%, PowerShell 1.6%, HTML 0.2%, TSQL 0.1%, Other 0.1%" src="./cards/light/en/languages.svg"/></picture>
+<picture><source media="(prefers-color-scheme: dark)" srcset="./cards/dark/en/languages.svg"/><img width="100%" alt="Languages used in public and private repositories: TypeScript 70.8%, C# 15.2%, JavaScript 9.1%, CSS 2.8%, PowerShell 1.6%, HTML 0.2%, TSQL 0.1%, Other 0.1%" src="./cards/light/en/languages.svg"/></picture>
 
 <picture><source media="(prefers-color-scheme: dark)" srcset="./cards/dark/en/title-building.svg"/><img width="100%" alt="04 What I'm building" src="./cards/light/en/title-building.svg"/></picture>
 
@@ -46,4 +46,4 @@
 
 <a href="https://www.linkedin.com/in/eduardo-bergstron-986108143/"><picture><source media="(prefers-color-scheme: dark)" srcset="./cards/dark/en/link-linkedin.svg"/><img width="33.33%" alt="LinkedIn: in/eduardo-bergstron" src="./cards/light/en/link-linkedin.svg"/></picture></a><a href="https://github.com/B3RG5TRON"><picture><source media="(prefers-color-scheme: dark)" srcset="./cards/dark/en/link-github.svg"/><img width="33.33%" alt="GitHub: github.com/B3RG5TRON" src="./cards/light/en/link-github.svg"/></picture></a><a href="https://b3rg5tron.github.io/"><picture><source media="(prefers-color-scheme: dark)" srcset="./cards/dark/en/link-site.svg"/><img width="33.33%" alt="Portfolio: b3rg5tron.github.io" src="./cards/light/en/link-site.svg"/></picture></a>
 
-<picture><source media="(prefers-color-scheme: dark)" srcset="./cards/dark/en/footer.svg"/><img width="100%" alt="© 2026 Eduardo Bergstron · Porto Alegre, BR. cards generated from this repository · updated 13 Nov 2026" src="./cards/light/en/footer.svg"/></picture>
+<picture><source media="(prefers-color-scheme: dark)" srcset="./cards/dark/en/footer.svg"/><img width="100%" alt="© 2026 Eduardo Bergstron · Porto Alegre, BR. cards generated from this repository · updated 14 Nov 2026" src="./cards/light/en/footer.svg"/></picture>
