@@ -5,7 +5,7 @@ const raw = JSON.parse(readFileSync(new URL('../design/tokens.json', import.meta
 export type ThemeName = 'dark' | 'light';
 export type Theme = {
   bg: string; text: string; text2: string; text3: string; text4: string;
-  accent: string; ok: string; info: string;
+  accent: string; ok: string; info: string; warn: string;
   border: string; hairline: string; pill: string; track: string;
   glassTop: string; glassBottom: string; edgeTop: string; edgeMid: string; edgeBottom: string;
   shadow: string; glowA: string; glowB: string; glowStrength: number;
